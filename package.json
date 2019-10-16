@@ -1,0 +1,19 @@
+{
+  "name": "cs353groupproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+***REMOVED***,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lambegraham/CS353GroupProject.git"
+***REMOVED***,
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lambegraham/CS353GroupProject/issues"
+***REMOVED***,
+  "homepage": "https://github.com/lambegraham/CS353GroupProject#readme"
+***REMOVED***
