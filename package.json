@@ -19,6 +19,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "firebase": "^7.2.1",
-    "firebase-admin": "^8.6.1"
+    "firebase-admin": "^8.6.1",
+    "firebaseui": "^4.2.0"
 ***REMOVED***
 ***REMOVED***
