@@ -6,8 +6,6 @@ app.get('/', function (req, res) {
   res.send("HTTP GET Request");
 ***REMOVED***);
 
-
-
 app.put('/', function (req, res) {
   console.log("HTTP Put Request");
   res.send("HTTP PUT Request");
@@ -31,7 +29,10 @@ var server = app.listen(8080, function () {
   console.log("Example app listening at http://%s:%s", host, port);
 ***REMOVED***);
 
-var firebase = require('firebase');
+var firebase = require('firebase'); //init firebase
+
+
+require("firebase/auth"); //auth
 
 var firebaseConfig = {
   apiKey: "AIzaSyCLhR7zyHM99cWqOvPtPkUmE55Eyv_CyDE",
