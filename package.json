@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/lambegraham/CS353GroupProject/issues"
 ***REMOVED***,
-  "homepage": "https://github.com/lambegraham/CS353GroupProject#readme"
+  "homepage": "https://github.com/lambegraham/CS353GroupProject#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "firebase": "^7.2.1",
+    "firebase-admin": "^8.6.1"
+***REMOVED***
 ***REMOVED***
