@@ -1,3 +1,9 @@
+###Notes for us 
+
+When downloading the package/github, run 'npm install' to install all dependencies first, or server may not run.
+
+###Extras
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
