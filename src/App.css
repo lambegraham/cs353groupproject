@@ -3,11 +3,11 @@
 ***REMOVED***
 
 .App-logo {
-  height: 40vmin;
+  height: 60vmin;
 ***REMOVED***
 
 .App-header {
-  background-color: #282c34;
+  background-color: pink;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,4 +19,7 @@
 
 .App-link {
   color: #09d3ac;
+***REMOVED***
+p {
+  color: black;
 ***REMOVED***

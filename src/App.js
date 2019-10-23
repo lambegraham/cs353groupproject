@@ -21,11 +21,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+      <p>
+          WE DID IT BOYS
+        </p>
         <img src={logo***REMOVED*** className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
-
-          WE FUCKING DID IT BOYS
+          WE DID IT BOYS
         </p>
         <a
           className="App-link"
@@ -33,7 +34,6 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
         </a>
       </header>
     </div>
