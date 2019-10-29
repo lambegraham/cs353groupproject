@@ -1,16 +1,3 @@
-## Instructions
-
-First time instructions:
-  Delete node_modules folder if present.
-  Run `npm install` in terminal.
-  
-To run:
-  `npm start`
-
-Missing Dependencies?:
-  Run `npm install` in terminal
-
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
