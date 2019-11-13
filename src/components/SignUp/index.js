@@ -1,9 +1,11 @@
 import React, { Component ***REMOVED*** from 'react';
 import { Link, withRouter ***REMOVED*** from 'react-router-dom';
 import { compose ***REMOVED*** from 'recompose';
-
 import { withFirebase ***REMOVED*** from '../Firebase';
 import * as ROUTES from '../../constants/routes';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 const SignUpPage = () => (
   <div>
     <h1>SignUp</h1>
@@ -66,40 +68,52 @@ class SignUpFormBase extends Component {
 
 
     return (
-      <form onSubmit={this.onSubmit***REMOVED***>
-        <input
+      <Form onSubmit={this.onSubmit***REMOVED***>
+        <Form.Group>
+        <Form.Control input
           name="username"
           value={username***REMOVED***
           onChange={this.onChange***REMOVED***
           type="text"
           placeholder="Full Name"
         />
-        <input
+        </Form.Group>
+
+        <Form.Group>
+        <Form.Control input
           name="email"
           value={email***REMOVED***
           onChange={this.onChange***REMOVED***
           type="text"
           placeholder="Email Address"
         />
-        <input
+        </Form.Group>
+
+        <Form.Group>
+        <Form.Control input
           name="passwordOne"
           value={passwordOne***REMOVED***
           onChange={this.onChange***REMOVED***
           type="password"
           placeholder="Password"
         />
-        <input
+        </Form.Group>
+
+        <Form.Group>
+        <Form.Control input
           name="passwordTwo"
           value={passwordTwo***REMOVED***
           onChange={this.onChange***REMOVED***
           type="password"
           placeholder="Confirm Password"
         />
-        <button disabled={isInvalid***REMOVED*** type="submit">
+        </Form.Group>
+        
+        <Button variant="primary" disabled={isInvalid***REMOVED*** type="submit">
           Sign Up
-        </button>
+        </Button>
         {error && <p>{error.message***REMOVED***</p>***REMOVED***
-      </form>
+      </Form>
     );
 ***REMOVED***
 ***REMOVED***
