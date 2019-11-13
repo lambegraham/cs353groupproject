@@ -4,6 +4,9 @@ import { compose ***REMOVED*** from 'recompose';
 import { SignUpLink ***REMOVED*** from '../SignUp';
 import { withFirebase ***REMOVED*** from '../Firebase';
 import * as ROUTES from '../../constants/routes';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 const SignInPage = () => (
   <div>
     <h1>SignIn</h1>
@@ -41,26 +44,32 @@ class SignInFormBase extends Component {
     const { email, password, error ***REMOVED*** = this.state;
     const isInvalid = password === '' || email === '';
     return (
-      <form onSubmit={this.onSubmit***REMOVED***>
-        <input
+      <Form onSubmit={this.onSubmit***REMOVED***>
+        <Form.Group>
+        <Form.Control input
           name="email"
           value={email***REMOVED***
           onChange={this.onChange***REMOVED***
           type="text"
           placeholder="Email Address"
         />
-        <input
+        </Form.Group>
+
+        <Form.Group>
+        <Form.Control input
           name="password"
           value={password***REMOVED***
           onChange={this.onChange***REMOVED***
           type="password"
           placeholder="Password"
         />
-        <button disabled={isInvalid***REMOVED*** type="submit">
+        </Form.Group>
+        
+        <Button variant="primary" disabled={isInvalid***REMOVED*** type="submit">
           Sign In
-        </button>
+        </Button>
         {error && <p>{error.message***REMOVED***</p>***REMOVED***
-      </form>
+      </Form>
     );
 ***REMOVED***
 ***REMOVED***

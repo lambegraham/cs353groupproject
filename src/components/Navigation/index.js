@@ -8,6 +8,9 @@ const Navigation = () => (
         <Link to={ROUTES.SIGN_IN***REMOVED***>Sign In</Link>
       </li>
       <li>
+        <Link to={ROUTES.SIGN_UP***REMOVED***>Sign Up</Link>
+      </li>
+      <li>
         <Link to={ROUTES.LANDING***REMOVED***>Landing</Link>
       </li>
       <li>
