@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {
   BrowserRouter as Router,
@@ -21,7 +22,7 @@ const App = () => (
   <Router>
     <div>
       <Navigation />
-      <hr />
+      <hr/>
       <Route exact path={ROUTES.LANDING***REMOVED*** component={LandingPage***REMOVED*** />
       <Route path={ROUTES.SIGN_UP***REMOVED*** component={SignUpPage***REMOVED*** />
       <Route path={ROUTES.SIGN_IN***REMOVED*** component={SignInPage***REMOVED*** />
