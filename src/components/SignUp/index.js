@@ -8,8 +8,7 @@ import Form from 'react-bootstrap/Form';
 
 const SignUpPage = () => (
   <div>
-    <h1>SignUp</h1>
-    <SignUpForm />
+    <SignUpForm/>
   </div>
 );
 
@@ -68,6 +67,8 @@ class SignUpFormBase extends Component {
 
 
     return (
+      <div class="container">
+        <h1>Sign Up</h1>
       <Form onSubmit={this.onSubmit***REMOVED***>
         <Form.Group>
         <Form.Control input
@@ -114,6 +115,7 @@ class SignUpFormBase extends Component {
         </Button>
         {error && <p>{error.message***REMOVED***</p>***REMOVED***
       </Form>
+      </div>
     );
 ***REMOVED***
 ***REMOVED***

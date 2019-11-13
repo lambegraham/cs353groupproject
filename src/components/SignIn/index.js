@@ -9,9 +9,8 @@ import Form from 'react-bootstrap/Form';
 
 const SignInPage = () => (
   <div>
-    <h1>SignIn</h1>
     <SignInForm />
-    <SignUpLink />
+    
   </div>
 );
 const INITIAL_STATE = {
@@ -44,6 +43,8 @@ class SignInFormBase extends Component {
     const { email, password, error ***REMOVED*** = this.state;
     const isInvalid = password === '' || email === '';
     return (
+      <div class="container">
+      <h1>SignIn</h1>
       <Form onSubmit={this.onSubmit***REMOVED***>
         <Form.Group>
         <Form.Control input
@@ -70,6 +71,8 @@ class SignInFormBase extends Component {
         </Button>
         {error && <p>{error.message***REMOVED***</p>***REMOVED***
       </Form>
+      <SignUpLink />
+      </div>
     );
 ***REMOVED***
 ***REMOVED***
