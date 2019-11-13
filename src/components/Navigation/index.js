@@ -19,6 +19,9 @@ const Navigation = () => (
       <li>
         <Link to={ROUTES.ADMIN***REMOVED***>Admin</Link>
       </li>
+      <li>
+        <Link to={ROUTES.PASSWORD_FORGET***REMOVED***>PasswordForget</Link>
+      </li>
     </ul>
   </div>
 );
