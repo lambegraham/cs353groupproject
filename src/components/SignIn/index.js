@@ -44,7 +44,7 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
     return (
       <div class="container">
-      <h1>SignIn</h1>
+      <h1>Sign In</h1>
       <Form onSubmit={this.onSubmit***REMOVED***>
         <Form.Group>
         <Form.Control input
