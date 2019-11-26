@@ -26,6 +26,7 @@ function CRUD() {
   const onCreate=() => { //creates data to the firebase
     const db = firebase.firestore();
     db.collection('users').add({moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam***REMOVED***);
+    db.collection('users').doc('Modules').set({moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam***REMOVED***);
 ***REMOVED***
 
   //Layout
