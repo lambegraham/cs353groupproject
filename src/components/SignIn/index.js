@@ -2,6 +2,7 @@ import React, { Component ***REMOVED*** from 'react';
 import { withRouter ***REMOVED*** from 'react-router-dom';
 import { compose ***REMOVED*** from 'recompose';
 import { SignUpLink ***REMOVED*** from '../SignUp';
+import { PasswordForgetLink ***REMOVED*** from '../PasswordForget';
 import { withFirebase ***REMOVED*** from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import Button from 'react-bootstrap/Button';
@@ -11,7 +12,11 @@ import PasswordForget, { PasswordForgetLink ***REMOVED*** from '../PasswordForge
 const SignInPage = () => (
   <div>
     <SignInForm />
+<<<<<<< HEAD
     <PasswordForgetLink/>
+=======
+    <PasswordForgetLink />    
+>>>>>>> fa95253f54586bb9b36fe0b4f7607778cd8b9188
   </div>
 );
 const INITIAL_STATE = {
