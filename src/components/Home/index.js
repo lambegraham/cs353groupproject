@@ -1,5 +1,5 @@
 import React from 'react';
-import CRUD from '../CRUD/react-firebase/src/CRUD.js'
+import CRUD from '../CRUD/CRUD.js'
 
 const Home = () => (
   <div class = "container">
