@@ -6,11 +6,12 @@ import { withFirebase ***REMOVED*** from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import PasswordForget, { PasswordForgetLink ***REMOVED*** from '../PasswordForget';
 
 const SignInPage = () => (
   <div>
     <SignInForm />
-    
+    <PasswordForgetLink/>
   </div>
 );
 const INITIAL_STATE = {
