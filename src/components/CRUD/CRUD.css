@@ -1,0 +1,27 @@
+.pageHeader{
+  background-color: blue;
+***REMOVED***
+
+.crudTable{
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+***REMOVED***
+
+.headers{
+  background-color: aqua;
+  font-family: arial, sans-serif;
+***REMOVED***
+
+td, th{
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+***REMOVED***
+
+.createRow{
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+  border: 10px;
+***REMOVED***

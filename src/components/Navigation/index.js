@@ -30,7 +30,7 @@ const NavigationAuth = () => (
       <Link to={ROUTES.ACCOUNT***REMOVED***>Account</Link>
     </li>
     <li>
-      <SignOutButton />
+      <SignOutButt/>
     </li>
   </ul>
 );

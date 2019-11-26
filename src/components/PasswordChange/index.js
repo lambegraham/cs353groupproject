@@ -1,16 +1,11 @@
 import React, { Component ***REMOVED*** from 'react';
 import { withFirebase ***REMOVED*** from '../Firebase';
-const PasswordChange = () => (
-  <div>
-    <h1>PasswordChange</h1>
-  </div>
-);
 const INITIAL_STATE = {
   passwordOne: '',
   passwordTwo: '',
   error: null,
 ***REMOVED***;
-class PasswordChange extends Component {
+class PasswordChangeForm extends Component {
   constructor(props) {
     super(props);
     this.state = { ...INITIAL_STATE ***REMOVED***;
@@ -58,4 +53,4 @@ class PasswordChange extends Component {
     );
 ***REMOVED***
 ***REMOVED***
-export default withFirebase(PasswordChange);
+export default withFirebase(PasswordChangeForm);
