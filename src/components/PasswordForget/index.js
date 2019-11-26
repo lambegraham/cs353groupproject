@@ -1,12 +1,14 @@
-import React, {Component***REMOVED*** from 'react';
-import {Link***REMOVED*** from 'react-router-dom';
-
-import { withFirebase***REMOVED*** from '../Firebase';
+import React, { Component ***REMOVED*** from 'react';
+import { Link ***REMOVED*** from 'react-router-dom';
+import { withFirebase ***REMOVED*** from '../Firebase';
 import * as ROUTES from '../../constants/routes';
+
+//styling stuff 
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 const PasswordForget = () => (
   <div>
-    <h1>Forgot Password?</h1>
     <PasswordForgetForm />
   </div>
 );
@@ -40,19 +42,28 @@ class PasswordForgetFormBase extends Component {
     const { email, error ***REMOVED*** = this.state;
     const isInvalid = email === '';
     return (
-      <form onSubmit={this.onSubmit***REMOVED***>
-        <input
-          name="email"
-          value={this.state.email***REMOVED***
-          onChange={this.onChange***REMOVED***
-          type="text"
-          placeholder="Email Address"
-        />
-        <button disabled={isInvalid***REMOVED*** type="submit">
-          Reset My Password
-        </button>
-        {error && <p>{error.message***REMOVED***</p>***REMOVED***
-      </form>
+      <div class="container">
+        <h2>Forgot Password?</h2>
+        <Form onSubmit={this.onSubmit***REMOVED***>
+          <Form.Group>
+            <Form.Label>Enter your email below and we'll send you a link to reset your password.</Form.Label>
+            <Form.Control input
+              name="email"
+              value={this.state.email***REMOVED***
+              onChange={this.onChange***REMOVED***
+              type="text"
+              placeholder="Email Address"
+            />
+            <Form.Text className="text-muted">
+              Never share your password with anyone else.
+            </Form.Text>
+          </Form.Group>
+          <Button disabled={isInvalid***REMOVED*** type="submit">
+            Reset My Password
+        </Button>
+          {error && <p>{error.message***REMOVED***</p>***REMOVED***
+        </Form>
+      </div>
     );
 ***REMOVED***
 ***REMOVED***

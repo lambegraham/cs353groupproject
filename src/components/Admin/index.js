@@ -1,7 +1,8 @@
 import React from 'react';
+import admin from './bucket.jpg';
 const Admin = () => (
   <div>
-    <h1>Admin</h1>
+    <img src={admin***REMOVED*** />
   </div>
 );
 export default Admin;

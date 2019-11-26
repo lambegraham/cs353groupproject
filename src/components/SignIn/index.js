@@ -5,18 +5,15 @@ import { SignUpLink ***REMOVED*** from '../SignUp';
 import { PasswordForgetLink ***REMOVED*** from '../PasswordForget';
 import { withFirebase ***REMOVED*** from '../Firebase';
 import * as ROUTES from '../../constants/routes';
+import PasswordForget from '../PasswordForget';
+
+//dont change pls kittens may die
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import PasswordForget, { PasswordForgetLink ***REMOVED*** from '../PasswordForget';
 
 const SignInPage = () => (
   <div>
-    <SignInForm />
-<<<<<<< HEAD
-    <PasswordForgetLink/>
-=======
-    <PasswordForgetLink />    
->>>>>>> fa95253f54586bb9b36fe0b4f7607778cd8b9188
+    <SignInForm/>
   </div>
 );
 const INITIAL_STATE = {
@@ -77,7 +74,8 @@ class SignInFormBase extends Component {
         </Button>
         {error && <p>{error.message***REMOVED***</p>***REMOVED***
       </Form>
-      <SignUpLink />
+      <SignUpLink/>
+      <PasswordForgetLink/>
       </div>
     );
 ***REMOVED***

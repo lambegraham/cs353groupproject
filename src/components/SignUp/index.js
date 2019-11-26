@@ -108,6 +108,9 @@ class SignUpFormBase extends Component {
           type="password"
           placeholder="Confirm Password"
         />
+        <Form.Text className="text-muted">
+              We'll never share your password with anyone else.
+            </Form.Text>
         </Form.Group>
         
         <Button variant="primary" disabled={isInvalid***REMOVED*** type="submit">
