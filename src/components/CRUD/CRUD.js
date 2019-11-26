@@ -1,5 +1,4 @@
 import React from 'react';
-import './CRUD.css';
 import * as firebase from 'firebase';
 import {GradeInput***REMOVED*** from './GradeInput';
 ***REMOVED***
