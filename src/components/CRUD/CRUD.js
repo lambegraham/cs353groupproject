@@ -28,7 +28,7 @@ function CRUD() {
     console.log(uid);
     const db = firebase.firestore();
     //db.collection('users').add({moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam***REMOVED***);
-    db.collection('users').doc(uid).set({
+    db.collection('users').doc(uid).collection("Modules").add({
       moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam***REMOVED***
       );
 ***REMOVED***
