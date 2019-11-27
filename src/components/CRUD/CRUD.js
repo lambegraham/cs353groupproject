@@ -23,9 +23,14 @@ function CRUD() {
 ***REMOVED***, [])
 
   const onCreate=() => { //creates data to the firebase
+    var user = firebase.auth().currentUser;
+    const uid = user.uid;
+    console.log(uid);
     const db = firebase.firestore();
-    db.collection('users').add({moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam***REMOVED***);
-    db.collection('users').doc('Modules').set({moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam***REMOVED***);
+    //db.collection('users').add({moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam***REMOVED***);
+    db.collection('users').doc(uid).set({
+      moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam***REMOVED***
+      );
 ***REMOVED***
 
   //Layout
