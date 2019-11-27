@@ -25,46 +25,55 @@ class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { ...INITIAL_STATE ***REMOVED***;
+    this.state = {
+      ...INITIAL_STATE
+  ***REMOVED***
 ***REMOVED***
   onSubmit = event => {
     // eslint-disable-next-line
-    const { username, email, passwordOne ***REMOVED*** = this.state;
-    this.props.firebase
-      .doCreateUserWithEmailAndPassword(email, passwordOne)
-      .then(authUser => {
-        this.setState({ ...INITIAL_STATE ***REMOVED***);
-        this.props.history.push(ROUTES.HOME);
-    ***REMOVED***)
-      .catch(error => {
-        this.setState({ error ***REMOVED***);
-    ***REMOVED***);
-    event.preventDefault();
-***REMOVED***
-  onChange = event => {
-***REMOVED***
-
-
-  onChange = event => {
-    this.setState({ [event.target.name]: event.target.value ***REMOVED***);
-***REMOVED***
-
-  render() {
     const {
       username,
       email,
-      passwordOne,
-      passwordTwo,
-      error,
+      passwordOne
   ***REMOVED*** = this.state;
+    this.props.firebase
+      .doCreateUserWithEmailAndPassword(email, passwordOne)
+      .then(authUser => {
+        this.setState({
+          ...INITIAL_STATE
+      ***REMOVED***);
+        this.props.history.push(ROUTES.HOME);
+    ***REMOVED***)
+      .catch(error => {
+        this.setState({
+          error
+      ***REMOVED***);
+    ***REMOVED***);
+    event.preventDefault();
+***REMOVED***
+  onChange = event => {***REMOVED***;
 
-    const isInvalid =
-      passwordOne !== passwordTwo ||
-      passwordOne === '' ||
-      email === '' ||
-      username === '';
 
+  onChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+  ***REMOVED***);
+***REMOVED***
 
+  render() {
+      const {
+        username,
+        email,
+        passwordOne,
+        passwordTwo,
+        error,
+    ***REMOVED*** = this.state;
+
+      const isInvalid =
+        passwordOne !== passwordTwo ||
+        passwordOne === '' ||
+        email === '' ||
+        username === '';
 
     return (
       <div class="container">
@@ -72,41 +81,57 @@ class SignUpFormBase extends Component {
       <Form onSubmit={this.onSubmit***REMOVED***>
         <Form.Group>
         <Form.Control input
-          name="username"
-          value={username***REMOVED***
-          onChange={this.onChange***REMOVED***
-          type="text"
-          placeholder="Full Name"
+          name = "username"
+          value = {
+            username
+        ***REMOVED***
+          onChange = {
+            this.onChange
+        ***REMOVED***
+          type = "text"
+          placeholder = "Full Name"
         />
         </Form.Group>
 
         <Form.Group>
         <Form.Control input
-          name="email"
-          value={email***REMOVED***
-          onChange={this.onChange***REMOVED***
-          type="text"
-          placeholder="Email Address"
+          name = "email"
+          value = {
+            email
+        ***REMOVED***
+          onChange = {
+            this.onChange
+        ***REMOVED***
+          type = "text"
+          placeholder = "Email Address"
         />
         </Form.Group>
 
         <Form.Group>
         <Form.Control input
-          name="passwordOne"
-          value={passwordOne***REMOVED***
-          onChange={this.onChange***REMOVED***
-          type="password"
-          placeholder="Password"
+          name = "passwordOne"
+          value = {
+            passwordOne
+        ***REMOVED***
+          onChange = {
+            this.onChange
+        ***REMOVED***
+          type = "password"
+          placeholder = "Password"
         />
         </Form.Group>
 
         <Form.Group>
         <Form.Control input
-          name="passwordTwo"
-          value={passwordTwo***REMOVED***
-          onChange={this.onChange***REMOVED***
-          type="password"
-          placeholder="Confirm Password"
+          name = "passwordTwo"
+          value = {
+            passwordTwo
+        ***REMOVED***
+          onChange = {
+            this.onChange
+        ***REMOVED***
+          type = "password"
+          placeholder = "Confirm Password"
         />
         <Form.Text className="text-muted">
               We'll never share your password with anyone else.
@@ -122,14 +147,15 @@ class SignUpFormBase extends Component {
     );
 ***REMOVED***
 ***REMOVED***
-const SignUpLink = () => (
-  <p>
-    Don't have an account? <Link to={ROUTES.SIGN_UP***REMOVED***>Sign Up</Link>
-  </p>
+const SignUpLink = () => ( <p>
+  Don 't have an account? <Link to={ROUTES.SIGN_UP***REMOVED***>Sign Up</Link> </p>
 );
 const SignUpForm = compose(
   withRouter,
   withFirebase,
 )(SignUpFormBase);
 export default SignUpPage;
-export { SignUpForm, SignUpLink ***REMOVED***;
+export {
+  SignUpForm,
+  SignUpLink
+***REMOVED***;
