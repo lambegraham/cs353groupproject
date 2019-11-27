@@ -2,19 +2,27 @@ import React from 'react';
 import * as firebase from 'firebase';
 import 'firebase/firestore'
 
-export const GradeInput = ({grade***REMOVED***) => {
-    const [moduleCode, setCode] = React.useState(grade.moduleCode);
-    const [moduleName, setName] = React.useState(grade.moduleName);
-    const [moduleCA, setCA] = React.useState(grade.moduleCA);
-    const [moduleExam, setExam] = React.useState(grade.moduleExam);
+export const GradeInput = ({
+        grade
+  ***REMOVED***) => {
+        const [moduleCode, setCode] = React.useState(grade.moduleCode);
+        const [moduleName, setName] = React.useState(grade.moduleName);
+        const [moduleCA, setCA] = React.useState(grade.moduleCA);
+        const [moduleExam, setExam] = React.useState(grade.moduleExam);
 
-    const onUpdate = () => { //this will update firebase
-        const db = firebase.firestore();
-        //.set sets all data from before but with updated data
-        db.collection('users').doc(grade.id).set({...grade, moduleCode, moduleName, moduleCA, moduleExam***REMOVED***);
-  ***REMOVED***
+        const onUpdate = () => { //this will update firebase
+            const db = firebase.firestore();
+            //.set sets all data from before but with updated data
+            db.collection('users').doc(grade.id).set({
+                ...grade,
+                moduleCode,
+                moduleName,
+                moduleCA,
+                moduleExam
+          ***REMOVED***);
+      ***REMOVED***
 
-    const onDelete = () => {    //will delete from firebase
+    const onDelete = () => { //will delete from firebase
         const db = firebase.firestore();
         db.collection('users').doc(grade.id).delete();
   ***REMOVED***
