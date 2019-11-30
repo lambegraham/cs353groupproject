@@ -13,11 +13,21 @@ function CRUD() {
   //Below is React Hooks code
   React.useEffect(() => {
     const fetchData = async () => {
+      const currentUser = firebase.auth().currentUser;
       const db = firebase.firestore()
       const data = await db.collection("users").get()
       console.log(data);
       //^this gets all documents in the collection
       //id: doc.id sets id field for grades
+      var usersRef = db.collection('users').doc(currentUser);
+      var modulesRef = usersRef.collection('users/Modules');
+
+      modulesRef.get().then(doc => {
+        const data = collection.data()
+        console.log(data);
+    ***REMOVED***)
+
+
 
       //--------------------------------------------------------------------------------------------------------------------
       // var user = firebase.auth().currentUser;
@@ -40,7 +50,7 @@ function CRUD() {
       //--------------------------------------------------------------------------------------------------------------------
 
 
-      
+
       setGrades(data.docs.map(doc => ({ ...doc.data(), id: doc.id ***REMOVED***)))
   ***REMOVED***
     fetchData()
