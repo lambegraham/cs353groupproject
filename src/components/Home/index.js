@@ -1,6 +1,5 @@
 import React from 'react';
 import CRUD from '../CRUD/CRUD.js'
-import { withAuthorization ***REMOVED*** from '../Session';
 
 const Home = () => (
   <div class = "container">
@@ -10,6 +9,4 @@ const Home = () => (
     </body>    
   </div>
 );
-const condition = authUser => !!authUser;
-
-export default withAuthorization(condition)(Home);
+export default Home;

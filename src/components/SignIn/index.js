@@ -5,6 +5,7 @@ import { SignUpLink ***REMOVED*** from '../SignUp';
 import { PasswordForgetLink ***REMOVED*** from '../PasswordForget';
 import { withFirebase ***REMOVED*** from '../Firebase';
 import * as ROUTES from '../../constants/routes';
+import PasswordForget from '../PasswordForget';
 
 //dont change pls kittens may die
 import Button from 'react-bootstrap/Button';
