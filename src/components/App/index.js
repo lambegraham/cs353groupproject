@@ -16,6 +16,8 @@ import AccountPage from '../Account';
 import AdminPage from '../Admin';
 
 import * as ROUTES from '../../constants/routes';
+import { withFirebase ***REMOVED*** from '../Firebase';
+import { AuthUserContext ***REMOVED*** from '../Session';
 import { withAuthentication ***REMOVED*** from '../Session';
 
 const App = () => (
