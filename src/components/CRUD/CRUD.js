@@ -8,43 +8,34 @@ let firebaseAppDefined = false
 setInterval(() => {
   if (!firebaseAppDefined) {
     if (firebase.app()) {
-      
-      firebase.auth().onAuthStateChanged(function(user) {
+
+      firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
           // User is signed in.
-          // var displayName = user.displayName;
-          var email = user.email;
-          var uid = user.uid;
-          console.log(uid);
-          // var emailVerified = user.emailVerified;
-          // var photoURL = user.photoURL;
-          // var isAnonymous = user.isAnonymous;
-          // var uid = user.uid;
-          // var providerData = user.providerData;
+          const db = firebase.firestore(); //database instance
+          var userEmail = user.email;
+          var userId = user.uid;
+          console.log(userId);
+
+          // DISPLAYS CERTAIN MODULE FOR CURRENT USER 
+          // var testRef = db.collection('users').doc(userId).collection("Modules").doc("fQKeOjsbAUrafujNpDbx");
+          // testRef.get().then(function(doc) {
+          // console.log(doc.data());
+          // ***REMOVED***); 
+
+          //--------------- DISPLAYS ALL MODULES FOR CURRENT USER IN CONSOLE -------------------------
+          db.collection('users').doc(userId).collection("Modules").get().then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+          ***REMOVED***);
+      ***REMOVED***); //----------------------------------------------------------------------------
           // ...
       ***REMOVED*** else {
           // User is signed out.
           // ...
       ***REMOVED***
     ***REMOVED***);
-      
-      function getUserId() {
-        const authPromise = () => {
-          return new Promise((resolve, reject) => {
-            const user = firebase.auth().currentUser;
-            console.log(user)
-        ***REMOVED***)
-      ***REMOVED***
-    ***REMOVED***
-      
-      function readUserData() {
-        var uid = getUserId();
-        console.log(uid);
-    ***REMOVED***
-      
-      function writeUserData() {
-      
-    ***REMOVED***
       firebaseAppDefined = true
   ***REMOVED***
 ***REMOVED***
