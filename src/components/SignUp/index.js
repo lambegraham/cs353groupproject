@@ -5,6 +5,8 @@ import { compose ***REMOVED*** from 'recompose';
 import { withFirebase ***REMOVED*** from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 ***REMOVED***
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 const SignUpPage = () => (
   <div>
@@ -29,11 +31,8 @@ class SignUpFormBase extends Component {
 ***REMOVED***
 
   onSubmit = event => {
-    const {username,email, passwordOne ***REMOVED*** = this.state;
-
+    const { username, email, passwordOne ***REMOVED*** = this.state;
     this.props.firebase
-      .doCreateUserWithEmailAndPassword(email, passwordOne)
-      this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
         // Create a user in your Firebase realtime database
@@ -75,41 +74,51 @@ class SignUpFormBase extends Component {
       username === '';
 
     return (
-      <form onSubmit={this.onSubmit***REMOVED***>
-        <input
+      <Form onSubmit={this.onSubmit***REMOVED***>
+        <Form.Group>
+        <Form.Control input
           name="username"
           value={username***REMOVED***
           onChange={this.onChange***REMOVED***
           type="text"
           placeholder="Full Name"
         />
-        <input
+                </Form.Group>
+
+<Form.Group>
+<Form.Control input
           name="email"
           value={email***REMOVED***
           onChange={this.onChange***REMOVED***
           type="text"
           placeholder="Email Address"
         />
-        <input
+                </Form.Group>
+
+<Form.Group>
+<Form.Control input
           name="passwordOne"
           value={passwordOne***REMOVED***
           onChange={this.onChange***REMOVED***
           type="password"
           placeholder="Password"
         />
-        <input
+                </Form.Group>
+
+<Form.Group>
+<Form.Control input
           name="passwordTwo"
           value={passwordTwo***REMOVED***
           onChange={this.onChange***REMOVED***
           type="password"
           placeholder="Confirm Password"
         />
-        <button disabled={isInvalid***REMOVED*** type="submit">
-          Sign Up
-        </button>
+        </Form.Group>
+        
+        <Button variant="primary" disabled={isInvalid***REMOVED*** type="submit">Sign Up</Button>
 
         {error && <p>{error.message***REMOVED***</p>***REMOVED***
-      </form>
+        </Form>
     );
 ***REMOVED***
 ***REMOVED***
