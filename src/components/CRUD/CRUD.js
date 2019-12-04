@@ -50,7 +50,7 @@ function CRUD() {
   const [newModuleCA, setNewModuleCA] = React.useState()
   const [newModuleExam, setNewModuleExam] = React.useState()
 
-  // console.log(readUserData());
+  //------------------ JACKS CODE (AND MARIOS) --------------------
   // //Below is React Hooks code
   // React.useEffect(() => {
   //   const fetchData = async () => {
