@@ -1,5 +1,6 @@
 import React from 'react';
 import * as firebase from 'firebase';
+import CRUD from '../CRUD/CRUD';
 
 //THIS IS NOT WORKING FULLY***********************************************
 class NameForm extends React.Component {
@@ -36,29 +37,30 @@ class NameForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit***REMOVED***>
-        <label>
-          ModuleCode:
-          <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
-        </label>
+      // <form onSubmit={this.handleSubmit***REMOVED***>
+      //   <label>
+      //     ModuleCode:
+      //     <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+      //   </label>
 
-        <label>
-          ModuleName:
-          <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
-        </label>
+      //   <label>
+      //     ModuleName:
+      //     <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+      //   </label>
 
-        <label>
-          ModuleCA:
-          <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
-        </label>
+      //   <label>
+      //     ModuleCA:
+      //     <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+      //   </label>
 
-        <label>
-          Module Exam:
-          <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
-        </label>
+      //   <label>
+      //     Module Exam:
+      //     <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+      //   </label>
 
-        <input type="submit" value="Submit" />
-      </form>
+      //   <input type="submit" value="Submit" />
+      // </form>
+      <CRUD/>
     );
 ***REMOVED***
 ***REMOVED***
