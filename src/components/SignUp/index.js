@@ -1,9 +1,11 @@
 import React, { Component ***REMOVED*** from 'react';
 import { Link, withRouter ***REMOVED*** from 'react-router-dom';
+// eslint-disable-next-line
 import { compose ***REMOVED*** from 'recompose';
 
 import { withFirebase ***REMOVED*** from '../Firebase';
 import * as ROUTES from '../../constants/routes';
+// eslint-disable-next-line
 ***REMOVED***
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
