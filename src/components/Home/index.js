@@ -1,19 +1,24 @@
 import React from 'react';
 import * as firebase from 'firebase';
 import CRUD from '../CRUD/CRUD';
+//import SideNav, { NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
+import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
+import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+import ToDoList from '../ToDoList/ToDoList.js';
+
 
 //THIS IS NOT WORKING FULLY***********************************************
 class NameForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''***REMOVED***;
+    this.state = { value: '' ***REMOVED***;
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 ***REMOVED***
 
   handleChange(event) {
-    this.setState({value: event.target.value***REMOVED***);
+    this.setState({ value: event.target.value ***REMOVED***);
 ***REMOVED***
 
   handleSubmit(event) {
@@ -22,11 +27,12 @@ class NameForm extends React.Component {
 ***REMOVED***
 
 
-    onCreate = () => { //creates data to the firebase
+  onCreate = () => { //creates data to the firebase
     var user = firebase.auth().currentUser;
     const uid = user.uid;
     console.log(uid);
-    const db = firebase.firestore();
+
+    //const db = firebase.firestore();
     // db.collection('users').doc(uid).collection("Modules").add({moduleCode: ***REMOVED***)
     //db.collection('users').add({moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam***REMOVED***);
     // db.collection('users').doc(uid).collection("Modules").add({
@@ -37,6 +43,7 @@ class NameForm extends React.Component {
 
   render() {
     return (
+      
       // <form onSubmit={this.handleSubmit***REMOVED***>
       //   <label>
       //     ModuleCode:
@@ -60,7 +67,60 @@ class NameForm extends React.Component {
 
       //   <input type="submit" value="Submit" />
       // </form>
+      <div>
       <CRUD/>
+      <React.Fragment>
+
+        <div className="main">
+          <div className="sideBar">
+            <SideNav
+              onSelect={(selected) => {
+                // Add your code here
+            ***REMOVED******REMOVED***
+            >
+              <SideNav.Toggle />
+              <SideNav.Nav defaultSelected="home">
+                <NavItem eventKey="home">
+                  <NavIcon>
+                    <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' ***REMOVED******REMOVED*** />
+                  </NavIcon>
+                  <NavText>
+                    <ToDoList />
+                  </NavText>
+                </NavItem>
+              </SideNav.Nav>
+            </SideNav>
+          </div>
+
+          <div className="CRUD">
+            <form onSubmit={this.handleSubmit***REMOVED***>
+              <label>
+                ModuleCode:
+          <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+              </label>
+
+              <label>
+                ModuleName:
+          <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+              </label>
+
+              <label>
+                ModuleCA:
+          <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+              </label>
+
+              <label>
+                Module Exam:
+          <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+              </label>
+
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
+
+        </div>
+      </React.Fragment>
+      </div>
     );
 ***REMOVED***
 ***REMOVED***
