@@ -4,7 +4,7 @@ import { GradeInput ***REMOVED*** from './GradeInput';
 ***REMOVED***
 import Table from 'react-bootstrap/Table';
 
-
+function firebaseTableShit(){
 let firebaseAppDefined = false
 
 setInterval(() => {
@@ -61,14 +61,15 @@ setInterval(() => {
   ***REMOVED***
 ***REMOVED***
 ***REMOVED***, 100)
-
+***REMOVED***
 
 function CRUD() {
-  const [grades, setGrades] = React.useState([])
-  const [newModuleCode, setNewModuleCode] = React.useState()
-  const [newModuleName, setNewModuleName] = React.useState()
-  const [newModuleCA, setNewModuleCA] = React.useState()
-  const [newModuleExam, setNewModuleExam] = React.useState()
+  firebaseTableShit();
+  // const [grades, setGrades] = React.useState([])
+  // const [newModuleCode, setNewModuleCode] = React.useState()
+  // const [newModuleName, setNewModuleName] = React.useState()
+  // const [newModuleCA, setNewModuleCA] = React.useState()
+  // const [newModuleExam, setNewModuleExam] = React.useState()
 
   //------------------ JACKS CODE (AND MARIOS) --------------------
   // //Below is React Hooks code
@@ -108,20 +109,21 @@ function CRUD() {
   // ***REMOVED***, [])
 
 
-  const onCreate = () => { //creates data to the firebase
-    var user = firebase.auth().currentUser;
-    const uid = user.uid;
-    console.log(uid);
-    const db = firebase.firestore();
-    //db.collection('users').add({moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam***REMOVED***);
-    db.collection('users').doc(uid).collection("Modules").add({
-      moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam
-  ***REMOVED***
-    );
-***REMOVED***
+  // const onCreate = () => { //creates data to the firebase
+  //   var user = firebase.auth().currentUser;
+  //   const uid = user.uid;
+  //   console.log(uid);
+  //   const db = firebase.firestore();
+  //   //db.collection('users').add({moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam***REMOVED***);
+  //   db.collection('users').doc(uid).collection("Modules").add({
+  //     moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam
+  // ***REMOVED***
+  //   );
+  // ***REMOVED***
 
   //Layout
   return (
+    
     //<header className="pageHeader"></header>
     // <table className="crudTable">
     //   <thead className="headers"></thead>
