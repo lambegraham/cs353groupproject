@@ -1,10 +1,10 @@
 import React from 'react';
 import * as firebase from 'firebase';
 import CRUD from '../CRUD/CRUD';
-//import SideNav, { NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
-import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
-import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-import ToDoList from '../ToDoList/ToDoList.js';
+// //import SideNav, { NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
+// import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
+// import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+// import ToDoList from '../ToDoList/ToDoList.js';
 
 
 //THIS IS NOT WORKING FULLY***********************************************
@@ -67,60 +67,60 @@ class NameForm extends React.Component {
 
       //   <input type="submit" value="Submit" />
       // </form>
-      <div>
+      
       <CRUD/>
-      <React.Fragment>
+      // <React.Fragment>
 
-        <div className="main">
-          <div className="sideBar">
-            <SideNav
-              onSelect={(selected) => {
-                // Add your code here
-            ***REMOVED******REMOVED***
-            >
-              <SideNav.Toggle />
-              <SideNav.Nav defaultSelected="home">
-                <NavItem eventKey="home">
-                  <NavIcon>
-                    <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' ***REMOVED******REMOVED*** />
-                  </NavIcon>
-                  <NavText>
-                    <ToDoList />
-                  </NavText>
-                </NavItem>
-              </SideNav.Nav>
-            </SideNav>
-          </div>
+      //   <div className="main">
+      //     <div className="sideBar">
+      //       <SideNav
+      //         onSelect={(selected) => {
+      //           // Add your code here
+      //       ***REMOVED******REMOVED***
+      //       >
+      //         <SideNav.Toggle />
+      //         <SideNav.Nav defaultSelected="home">
+      //           <NavItem eventKey="home">
+      //             <NavIcon>
+      //               <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' ***REMOVED******REMOVED*** />
+      //             </NavIcon>
+      //             <NavText>
+      //               <ToDoList />
+      //             </NavText>
+      //           </NavItem>
+      //         </SideNav.Nav>
+      //       </SideNav>
+      //     </div>
 
-          <div className="CRUD">
-            <form onSubmit={this.handleSubmit***REMOVED***>
-              <label>
-                ModuleCode:
-          <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
-              </label>
+      //     <div className="CRUD">
+      //       <form onSubmit={this.handleSubmit***REMOVED***>
+      //         <label>
+      //           ModuleCode:
+      //     <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+      //         </label>
 
-              <label>
-                ModuleName:
-          <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
-              </label>
+      //         <label>
+      //           ModuleName:
+      //     <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+      //         </label>
 
-              <label>
-                ModuleCA:
-          <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
-              </label>
+      //         <label>
+      //           ModuleCA:
+      //     <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+      //         </label>
 
-              <label>
-                Module Exam:
-          <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
-              </label>
+      //         <label>
+      //           Module Exam:
+      //     <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+      //         </label>
 
-              <input type="submit" value="Submit" />
-            </form>
-          </div>
+      //         <input type="submit" value="Submit" />
+      //       </form>
+      //     </div>
 
-        </div>
-      </React.Fragment>
-      </div>
+      //   </div>
+      // </React.Fragment>
+     
     );
 ***REMOVED***
 ***REMOVED***

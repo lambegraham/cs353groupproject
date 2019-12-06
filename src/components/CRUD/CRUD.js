@@ -30,7 +30,7 @@ setInterval(() => {
             querySnapshot.forEach(function(doc) {
                 // doc.data() is never undefined for query doc snapshots
                 console.log(doc.id, " => ", doc.data());
-                document.getElementById("CRUDtableid").innerHTML = "Graham" ;
+                document.getElementById("CRUDtableid").innerHTML = "Graham";
               
           ***REMOVED***);
       ***REMOVED***); //----------------------------------------------------------------------------
@@ -121,7 +121,6 @@ function CRUD() {
     //     <button onClick={onCreate***REMOVED***>Create</button>
     //   </tr>
     // </table>
-    <div>
 <Table striped bordered hover id="CRUDtableid">
   <thead>
     <tr>
@@ -151,7 +150,6 @@ function CRUD() {
     </tr>
   </tbody>
 </Table>
-    </div>
   );
 ***REMOVED***
 
