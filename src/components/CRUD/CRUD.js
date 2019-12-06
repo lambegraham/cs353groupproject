@@ -13,25 +13,42 @@ setInterval(() => {
 
       firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
+
           // User is signed in.
           const db = firebase.firestore(); //database instance
           var userEmail = user.email;
           var userId = user.uid;
-          console.log(userId);
+          // document.getElementById('hello1').innerHTML = "blah";
+          console.log("blah");
 
-          // DISPLAYS CERTAIN MODULE FOR CURRENT USER 
+          // DISPLAYS CERTAIN MODULE FOR CURRENT USER
           // var testRef = db.collection('users').doc(userId).collection("Modules").doc("fQKeOjsbAUrafujNpDbx");
           // testRef.get().then(function(doc) {
           // console.log(doc.data());
-          // ***REMOVED***); 
+          // ***REMOVED***);
 
           //--------------- DISPLAYS ALL MODULES FOR CURRENT USER IN CONSOLE -------------------------
           db.collection('users').doc(userId).collection("Modules").get().then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
                 // doc.data() is never undefined for query doc snapshots
                 console.log(doc.id, " => ", doc.data());
-                document.getElementById("CRUDtableid").innerHTML = "Graham";
-              
+
+                console.log(doc.data().moduleExam);
+                var table = document.getElementById('t1');
+                var row = table.insertRow(table.rows.length);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+                cell1.innerHTML = doc.data().moduleName;
+                cell2.innerHTML = doc.data().moduleCode;
+                cell3.innerHTML = doc.data().moduleCA;
+                cell4.innerHTML = doc.data().moduleExam;
+
+
+
+
+
           ***REMOVED***);
       ***REMOVED***); //----------------------------------------------------------------------------
           // ...
@@ -79,7 +96,7 @@ function CRUD() {
   //     // ***REMOVED***
   //     // ***REMOVED***).catch(function (error) {
   //     //   console.log("Error getting document:", error);
-  //     // ***REMOVED***); 
+  //     // ***REMOVED***);
   //     // code to check documents - seems to be returning nothing although users doc should appear.
   //     //--------------------------------------------------------------------------------------------------------------------
 
@@ -121,35 +138,25 @@ function CRUD() {
     //     <button onClick={onCreate***REMOVED***>Create</button>
     //   </tr>
     // </table>
-<Table striped bordered hover id="CRUDtableid">
+<div>
+
+<Table striped bordered hover id="t1">
   <thead>
     <tr>
-      <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
+      <th>NAME</th>
+      <th>CODE</th>
+      <th>CA</th>
+      <th>EXAM</th>
+
+
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>1</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td colSpan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+
   </tbody>
 </Table>
+
+</div>
   );
 ***REMOVED***
 

@@ -1,3 +1,143 @@
+// import React, { Component ***REMOVED*** from 'react';
+// import { Link ***REMOVED*** from 'react-router-dom';
+// import * as ROUTES from '../../constants/routes';
+// import * as firebase from 'firebase';
+// ***REMOVED***
+//
+//
+//
+// const SignUpPage = () => (
+//   <div>
+//     <h1>SignUp</h1>
+//       <ModuleForm />
+//   </div>
+// );
+//
+//
+// const INITIAL_STATE = {
+//   ModuleCode: '',
+//   ModuleCA: '',
+//
+// ***REMOVED***;
+//
+// class ModuleForm extends Component {
+//   constructor(props) {
+//     super(props);
+//
+//
+//     this.state = { ...INITIAL_STATE ***REMOVED***;
+//
+//
+// ***REMOVED***
+//   onSubmit = event => {
+// ***REMOVED***
+//   onChange = event => {
+// ***REMOVED***
+//
+//   onChange = event => {
+//   this.setState({ [event.target.name]: event.target.value ***REMOVED***);
+// ***REMOVED***;
+//
+//   render() {
+//
+//     const {
+//       ModuleCode,
+//       ModuleCa,
+//
+//   ***REMOVED*** = this.state;
+//
+//
+//
+//
+//     return (
+//       <form onSubmit={this.onSubmit***REMOVED***>
+//
+//         <input id = "code"
+//           name="ModuleCode"
+//           value={ModuleCode***REMOVED***
+//           onChange={this.onChange***REMOVED***
+//           type="text"
+//           placeholder="Module Code"
+//         />
+//       <input id = "ca"
+//           name="ModuleCA"
+//           value={ModuleCa***REMOVED***
+//           onChange={this.onChange***REMOVED***
+//           type="text"
+//           placeholder="Module CA"
+//         />
+//
+//       <button onClick={sendData***REMOVED*** type="submit">Sign Up</button>
+//
+//
+//
+//
+//       </form>
+//     );
+// ***REMOVED***
+// ***REMOVED***
+//
+//
+// function sendData() {
+//   // var moduleCode = document.getElementById("code").value();
+//   // var ModuleCA = document.getElementById("ca").value();
+//
+//   var user = firebase.auth().currentUser;
+//   const uid = user.uid;
+//   console.log(uid);
+//   const db = firebase.firestore();
+//   console.log("hello");
+//   db.collection('users').doc("9Mn1xR04bneEwneVLeojMp4WnEc2").collection("Modules").add({
+//     moduleCode: "moduleCode", moduleName: "newModuleName", moduleCA: "ModuleCA", moduleExam: "newModuleExam"
+// ***REMOVED***);
+//
+//
+//
+//
+//
+// ***REMOVED***
+//
+//
+// const SignUpLink = () => (
+//   <p>
+//     Don't have an account? <Link to={ROUTES.SIGN_UP***REMOVED***>Sign Up</Link>
+//   </p>
+// );
+// export default SignUpPage;
+// export { ModuleForm, SignUpLink ***REMOVED***;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React from 'react';
 import * as firebase from 'firebase';
 import CRUD from '../CRUD/CRUD';
@@ -43,7 +183,7 @@ class NameForm extends React.Component {
 
   render() {
     return (
-      
+
       // <form onSubmit={this.handleSubmit***REMOVED***>
       //   <label>
       //     ModuleCode:
@@ -67,7 +207,7 @@ class NameForm extends React.Component {
 
       //   <input type="submit" value="Submit" />
       // </form>
-      
+
       <CRUD/>
       // <React.Fragment>
 
@@ -120,7 +260,7 @@ class NameForm extends React.Component {
 
       //   </div>
       // </React.Fragment>
-     
+
     );
 ***REMOVED***
 ***REMOVED***
@@ -153,7 +293,7 @@ export default NameForm;
 //     <h1>Home</h1>
 //     <body>
 //       {/* <CRUD/>  */***REMOVED***
-//     </body>    
+//     </body>
 //   </div>
 
 
