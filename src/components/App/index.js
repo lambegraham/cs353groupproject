@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component ***REMOVED*** from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {
