@@ -2,6 +2,8 @@ import React from 'react';
 import * as firebase from 'firebase';
 import { GradeInput ***REMOVED*** from './GradeInput';
 ***REMOVED***
+import Table from 'react-bootstrap/Table';
+
 
 let firebaseAppDefined = false
 
@@ -28,6 +30,8 @@ setInterval(() => {
             querySnapshot.forEach(function(doc) {
                 // doc.data() is never undefined for query doc snapshots
                 console.log(doc.id, " => ", doc.data());
+                document.getElementById("CRUDtableid").innerHTML = "Graham" ;
+              
           ***REMOVED***);
       ***REMOVED***); //----------------------------------------------------------------------------
           // ...
@@ -40,7 +44,6 @@ setInterval(() => {
   ***REMOVED***
 ***REMOVED***
 ***REMOVED***, 100)
-
 
 
 function CRUD() {
@@ -103,21 +106,52 @@ function CRUD() {
   //Layout
   return (
     //<header className="pageHeader"></header>
-    <table className="crudTable">
-      <thead className="headers"></thead>
-      <tr className="createRow">
-        {grades.map(grade => (
-          <div key={grade.moduleCode***REMOVED***>
-            <GradeInput grade={grade***REMOVED*** />
-          </div> //New component
-        ))***REMOVED***
-        <input value={newModuleCode***REMOVED*** onChange={(e) => setNewModuleCode(e.target.value)***REMOVED*** placeholder="Module Code" />
-        <input value={newModuleName***REMOVED*** onChange={(e) => setNewModuleName(e.target.value)***REMOVED*** placeholder="Module Name" />
-        <input value={newModuleCA***REMOVED*** onChange={(e) => setNewModuleCA(e.target.value)***REMOVED*** placeholder="Module CA" />
-        <input value={newModuleExam***REMOVED*** onChange={(e) => setNewModuleExam(e.target.value)***REMOVED*** placeholder="Module Exam" />
-        <button onClick={onCreate***REMOVED***>Create</button>
-      </tr>
-    </table>
+    // <table className="crudTable">
+    //   <thead className="headers"></thead>
+    //   <tr className="createRow">
+    //     {grades.map(grade => (
+    //       <div key={grade.moduleCode***REMOVED***>
+    //         <GradeInput grade={grade***REMOVED*** />
+    //       </div> //New component
+    //     ))***REMOVED***
+    //     <input value={newModuleCode***REMOVED*** onChange={(e) => setNewModuleCode(e.target.value)***REMOVED*** placeholder="Module Code" />
+    //     <input value={newModuleName***REMOVED*** onChange={(e) => setNewModuleName(e.target.value)***REMOVED*** placeholder="Module Name" />
+    //     <input value={newModuleCA***REMOVED*** onChange={(e) => setNewModuleCA(e.target.value)***REMOVED*** placeholder="Module CA" />
+    //     <input value={newModuleExam***REMOVED*** onChange={(e) => setNewModuleExam(e.target.value)***REMOVED*** placeholder="Module Exam" />
+    //     <button onClick={onCreate***REMOVED***>Create</button>
+    //   </tr>
+    // </table>
+    <div>
+<Table striped bordered hover id="CRUDtableid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Username</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td colSpan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</Table>
+    </div>
   );
 ***REMOVED***
 
