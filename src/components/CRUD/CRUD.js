@@ -126,7 +126,7 @@ function CRUD() {
                         const db = firebase.firestore(); //database instance
                         var userEmail = user.email;
                         var userId = user.uid;
-                         db.collection('users').doc(userId).collection("Modules").add({
+                        db.collection('users').doc(userId).collection("Modules").add({
                       moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam
                   ***REMOVED***
                     );
@@ -171,14 +171,6 @@ function CRUD() {
 
   </tbody>
 </Table>
-
-<Table striped bordered hover id="tinput">
-<thead>
-  <tr>
-    
-  </tr>
-  </thead>
-  </Table>
 
 </div>
   );
