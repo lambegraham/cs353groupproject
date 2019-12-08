@@ -12,11 +12,11 @@ let firebaseAppDefined = false
 
 function CRUD() {
   //firebaseTableShit();
-  // const [grades, setGrades] = React.useState([])
-  // const [newModuleCode, setNewModuleCode] = React.useState()
-  // const [newModuleName, setNewModuleName] = React.useState()
-  // const [newModuleCA, setNewModuleCA] = React.useState()
-  // const [newModuleExam, setNewModuleExam] = React.useState()
+  const [grades, setGrades] = React.useState([])
+  const [newModuleCode, setNewModuleCode] = React.useState()
+  const [newModuleName, setNewModuleName] = React.useState()
+  const [newModuleCA, setNewModuleCA] = React.useState()
+  const [newModuleExam, setNewModuleExam] = React.useState()
 
   //------------------ JACKS CODE (AND MARIOS) --------------------
   // //Below is React Hooks code
@@ -56,17 +56,7 @@ function CRUD() {
   // ***REMOVED***, [])
 
 
-  // const onCreate = () => { //creates data to the firebase
-  //   var user = firebase.auth().currentUser;
-  //   const uid = user.uid;
-  //   console.log(uid);
-  //   const db = firebase.firestore();
-  //   //db.collection('users').add({moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam***REMOVED***);
-  //   db.collection('users').doc(uid).collection("Modules").add({
-  //     moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam
-  // ***REMOVED***
-  //   );
-  // ***REMOVED***
+ 
   setInterval(() => {
     if (!firebaseAppDefined) {
       if (firebase.app()) {
@@ -105,9 +95,9 @@ function CRUD() {
                   cell3.innerHTML = doc.data().moduleCA;
                   cell4.innerHTML = doc.data().moduleExam;
   
+
   
-  
-  
+                 
   
             ***REMOVED***);
         ***REMOVED***); //----------------------------------------------------------------------------
@@ -121,27 +111,50 @@ function CRUD() {
     ***REMOVED***
   ***REMOVED***
 ***REMOVED***, 100)
+     const onCreate = () => { //creates data to the firebase
+                    // var user = firebase.auth().currentUser;
+                    // const uid = user.uid;
+                    // console.log(uid);
+                    // const db = firebase.firestore();
+                    //db.collection('users').add({moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam***REMOVED***);
 
+                    
+                    firebase.auth().onAuthStateChanged(function (user) {
+                      if (user) {
+              
+                        // User is signed in.
+                        const db = firebase.firestore(); //database instance
+                        var userEmail = user.email;
+                        var userId = user.uid;
+                         db.collection('users').doc(userId).collection("Modules").add({
+                      moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam
+                  ***REMOVED***
+                    );
+                    ***REMOVED***
+                  ***REMOVED***);
+
+                   
+                ***REMOVED***
   //Layout
   return (
-    
-    //<header className="pageHeader"></header>
-    // <table className="crudTable">
-    //   <thead className="headers"></thead>
-    //   <tr className="createRow">
-    //     {grades.map(grade => (
-    //       <div key={grade.moduleCode***REMOVED***>
-    //         <GradeInput grade={grade***REMOVED*** />
-    //       </div> //New component
-    //     ))***REMOVED***
-    //     <input value={newModuleCode***REMOVED*** onChange={(e) => setNewModuleCode(e.target.value)***REMOVED*** placeholder="Module Code" />
-    //     <input value={newModuleName***REMOVED*** onChange={(e) => setNewModuleName(e.target.value)***REMOVED*** placeholder="Module Name" />
-    //     <input value={newModuleCA***REMOVED*** onChange={(e) => setNewModuleCA(e.target.value)***REMOVED*** placeholder="Module CA" />
-    //     <input value={newModuleExam***REMOVED*** onChange={(e) => setNewModuleExam(e.target.value)***REMOVED*** placeholder="Module Exam" />
-    //     <button onClick={onCreate***REMOVED***>Create</button>
-    //   </tr>
-    // </table>
-<div>
+    <div>
+    <header className="pageHeader"></header>
+    <table className="crudTable">
+      <thead className="headers"></thead>
+      <tr className="createRow">
+        {grades.map(grade => (
+          <div key={grade.moduleCode***REMOVED***>
+            <GradeInput grade={grade***REMOVED*** />
+          </div> //New component
+        ))***REMOVED***
+        <input value={newModuleCode***REMOVED*** onChange={(e) => setNewModuleCode(e.target.value)***REMOVED*** placeholder="Module Code" />
+        <input value={newModuleName***REMOVED*** onChange={(e) => setNewModuleName(e.target.value)***REMOVED*** placeholder="Module Name" />
+        <input value={newModuleCA***REMOVED*** onChange={(e) => setNewModuleCA(e.target.value)***REMOVED*** placeholder="Module CA" />
+        <input value={newModuleExam***REMOVED*** onChange={(e) => setNewModuleExam(e.target.value)***REMOVED*** placeholder="Module Exam" />
+        <button onClick={onCreate***REMOVED***>Create</button>
+      </tr>
+    </table>
+
 
 <Table striped bordered hover id="t1">
   <thead>
@@ -158,6 +171,14 @@ function CRUD() {
 
   </tbody>
 </Table>
+
+<Table striped bordered hover id="tinput">
+<thead>
+  <tr>
+    
+  </tr>
+  </thead>
+  </Table>
 
 </div>
   );
