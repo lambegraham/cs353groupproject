@@ -4,67 +4,14 @@ import { GradeInput ***REMOVED*** from './GradeInput';
 ***REMOVED***
 import Table from 'react-bootstrap/Table';
 
-function firebaseTableShit(){
+//function firebaseTableShit(){
 let firebaseAppDefined = false
 
-setInterval(() => {
-  if (!firebaseAppDefined) {
-    if (firebase.app()) {
 
-      firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-
-          // User is signed in.
-          const db = firebase.firestore(); //database instance
-          var userEmail = user.email;
-          var userId = user.uid;
-          // document.getElementById('hello1').innerHTML = "blah";
-          console.log("blah");
-
-          // DISPLAYS CERTAIN MODULE FOR CURRENT USER
-          // var testRef = db.collection('users').doc(userId).collection("Modules").doc("fQKeOjsbAUrafujNpDbx");
-          // testRef.get().then(function(doc) {
-          // console.log(doc.data());
-          // ***REMOVED***);
-
-          //--------------- DISPLAYS ALL MODULES FOR CURRENT USER IN CONSOLE -------------------------
-          db.collection('users').doc(userId).collection("Modules").get().then(function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
-                // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
-
-                console.log(doc.data().moduleExam);
-                var table = document.getElementById('t1');
-                var row = table.insertRow(table.rows.length);
-                var cell1 = row.insertCell(0);
-                var cell2 = row.insertCell(1);
-                var cell3 = row.insertCell(2);
-                var cell4 = row.insertCell(3);
-                cell1.innerHTML = doc.data().moduleName;
-                cell2.innerHTML = doc.data().moduleCode;
-                cell3.innerHTML = doc.data().moduleCA;
-                cell4.innerHTML = doc.data().moduleExam;
-
-
-
-
-
-          ***REMOVED***);
-      ***REMOVED***); //----------------------------------------------------------------------------
-          // ...
-      ***REMOVED*** else {
-          // User is signed out.
-          // ...
-      ***REMOVED***
-    ***REMOVED***);
-      firebaseAppDefined = true
-  ***REMOVED***
-***REMOVED***
-***REMOVED***, 100)
-***REMOVED***
+//***REMOVED***
 
 function CRUD() {
-  firebaseTableShit();
+  //firebaseTableShit();
   // const [grades, setGrades] = React.useState([])
   // const [newModuleCode, setNewModuleCode] = React.useState()
   // const [newModuleName, setNewModuleName] = React.useState()
@@ -120,6 +67,60 @@ function CRUD() {
   // ***REMOVED***
   //   );
   // ***REMOVED***
+  setInterval(() => {
+    if (!firebaseAppDefined) {
+      if (firebase.app()) {
+  
+        firebase.auth().onAuthStateChanged(function (user) {
+          if (user) {
+  
+            // User is signed in.
+            const db = firebase.firestore(); //database instance
+            var userEmail = user.email;
+            var userId = user.uid;
+            // document.getElementById('hello1').innerHTML = "blah";
+            console.log("blah");
+  
+            // DISPLAYS CERTAIN MODULE FOR CURRENT USER
+            // var testRef = db.collection('users').doc(userId).collection("Modules").doc("fQKeOjsbAUrafujNpDbx");
+            // testRef.get().then(function(doc) {
+            // console.log(doc.data());
+            // ***REMOVED***);
+  
+            //--------------- DISPLAYS ALL MODULES FOR CURRENT USER IN CONSOLE -------------------------
+            db.collection('users').doc(userId).collection("Modules").get().then(function(querySnapshot) {
+              querySnapshot.forEach(function(doc) {
+                  // doc.data() is never undefined for query doc snapshots
+                  console.log(doc.id, " => ", doc.data());
+  
+                  console.log(doc.data().moduleExam);
+                  var table = document.getElementById('t1');
+                  var row = table.insertRow(table.rows.length);
+                  var cell1 = row.insertCell(0);
+                  var cell2 = row.insertCell(1);
+                  var cell3 = row.insertCell(2);
+                  var cell4 = row.insertCell(3);
+                  cell1.innerHTML = doc.data().moduleName;
+                  cell2.innerHTML = doc.data().moduleCode;
+                  cell3.innerHTML = doc.data().moduleCA;
+                  cell4.innerHTML = doc.data().moduleExam;
+  
+  
+  
+  
+  
+            ***REMOVED***);
+        ***REMOVED***); //----------------------------------------------------------------------------
+            // ...
+        ***REMOVED*** else {
+            // User is signed out.
+            // ...
+        ***REMOVED***
+      ***REMOVED***);
+        firebaseAppDefined = true
+    ***REMOVED***
+  ***REMOVED***
+***REMOVED***, 100)
 
   //Layout
   return (
