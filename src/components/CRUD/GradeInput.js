@@ -28,7 +28,11 @@ export const GradeInput = ({
   ***REMOVED***
 
     return ( /*e is the event reference and it calls setCode to set inputted data*/
-
+        /*<p>Select Order Preference</p>
+        <input type="radio" name="sort" value="asc">Alphabetical Order (Asc)</input>
+        <input type="radio" name="sort" value="desc">Descending Order (Desc) </input>
+        <input type="radio" name="sort" value="high">Highest Grade</input>
+        <input type="radio" name="sort" value="low">Lowest Grade</input>*/
         <table className="crudTable">
             <thead className="headers">
                 <th>Module Code</th>
