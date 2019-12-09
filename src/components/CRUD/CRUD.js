@@ -12,11 +12,13 @@ let firebaseAppDefined = false
 
 function CRUD() {
   //firebaseTableShit();
+  // eslint-disable-next-line
   const [grades, setGrades] = React.useState([])
   const [newModuleCode, setNewModuleCode] = React.useState()
   const [newModuleName, setNewModuleName] = React.useState()
   const [newModuleCA, setNewModuleCA] = React.useState()
   const [newModuleExam, setNewModuleExam] = React.useState()
+
 
   //------------------ JACKS CODE (AND MARIOS) --------------------
   // //Below is React Hooks code
@@ -56,52 +58,51 @@ function CRUD() {
   // ***REMOVED***, [])
 
 
- 
+
   setInterval(() => {
     if (!firebaseAppDefined) {
       if (firebase.app()) {
-  
+
         firebase.auth().onAuthStateChanged(function (user) {
           if (user) {
-  
+
             // User is signed in.
             const db = firebase.firestore(); //database instance
-            var userEmail = user.email;
+            //var userEmail = user.email;
             var userId = user.uid;
             // document.getElementById('hello1').innerHTML = "blah";
             console.log("blah");
-  
+
             // DISPLAYS CERTAIN MODULE FOR CURRENT USER
             // var testRef = db.collection('users').doc(userId).collection("Modules").doc("fQKeOjsbAUrafujNpDbx");
             // testRef.get().then(function(doc) {
             // console.log(doc.data());
             // ***REMOVED***);
-  
-            //--------------- DISPLAYS ALL MODULES FOR CURRENT USER IN CONSOLE -------------------------
-            db.collection('users').doc(userId).collection("Modules").get().then(function(querySnapshot) {
-              querySnapshot.forEach(function(doc) {
-                  // doc.data() is never undefined for query doc snapshots
-                  console.log(doc.id, " => ", doc.data());
-  
-                  console.log(doc.data().moduleExam);
-                  var table = document.getElementById('t1');
-                  var row = table.insertRow(table.rows.length);
-                  var cell1 = row.insertCell(0);
-                  var cell2 = row.insertCell(1);
-                  var cell3 = row.insertCell(2);
-                  var cell4 = row.insertCell(3);
-                  cell1.innerHTML = doc.data().moduleName;
-                  cell2.innerHTML = doc.data().moduleCode;
-                  cell3.innerHTML = doc.data().moduleCA;
-                  cell4.innerHTML = doc.data().moduleExam;
-  
 
-  
-                 
-  
+            //--------------- DISPLAYS ALL MODULES FOR CURRENT USER IN CONSOLE -------------------------
+            db.collection('users').doc(userId).collection("Modules").get().then(function (querySnapshot) {
+              querySnapshot.forEach(function (doc) {
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+
+                console.log(doc.data().moduleExam);
+                var table = document.getElementById('t1');
+                var row = table.insertRow(table.rows.length);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+                var cell5 = row.insertCell();
+                var cell6 = row.insertCell();
+                
+                cell1.innerHTML = doc.data().moduleName;
+                cell2.innerHTML = doc.data().moduleCode;
+                cell3.innerHTML = doc.data().moduleCA;
+                cell4.innerHTML = doc.data().moduleExam;
+                cell5.innerHTML = "<button onClick={onUpdate***REMOVED***>UPDATE </button>"
+                cell6.innerHTML = "<button onClick={onDelete***REMOVED***>DELETE </button>"
             ***REMOVED***);
-        ***REMOVED***); //----------------------------------------------------------------------------
-            // ...
+          ***REMOVED***);
         ***REMOVED*** else {
             // User is signed out.
             // ...
@@ -111,69 +112,95 @@ function CRUD() {
     ***REMOVED***
   ***REMOVED***
 ***REMOVED***, 100)
-     const onCreate = () => { //creates data to the firebase
-                    // var user = firebase.auth().currentUser;
-                    // const uid = user.uid;
-                    // console.log(uid);
-                    // const db = firebase.firestore();
-                    //db.collection('users').add({moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam***REMOVED***);
-
-                    
-                    firebase.auth().onAuthStateChanged(function (user) {
-                      if (user) {
-              
-                        // User is signed in.
-                        const db = firebase.firestore(); //database instance
-                        var userEmail = user.email;
-                        var userId = user.uid;
-                        db.collection('users').doc(userId).collection("Modules").add({
-                      moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam
-                  ***REMOVED***
-                    );
-                    ***REMOVED***
-                  ***REMOVED***);
-
-                   
-                ***REMOVED***
-  //Layout
-  return (
-    <div>
-    <header className="pageHeader"></header>
-    <table className="crudTable">
-      <thead className="headers"></thead>
-      <tr className="createRow">
-        {grades.map(grade => (
-          <div key={grade.moduleCode***REMOVED***>
-            <GradeInput grade={grade***REMOVED*** />
-          </div> //New component
-        ))***REMOVED***
-        <input value={newModuleCode***REMOVED*** onChange={(e) => setNewModuleCode(e.target.value)***REMOVED*** placeholder="Module Code" />
-        <input value={newModuleName***REMOVED*** onChange={(e) => setNewModuleName(e.target.value)***REMOVED*** placeholder="Module Name" />
-        <input value={newModuleCA***REMOVED*** onChange={(e) => setNewModuleCA(e.target.value)***REMOVED*** placeholder="Module CA" />
-        <input value={newModuleExam***REMOVED*** onChange={(e) => setNewModuleExam(e.target.value)***REMOVED*** placeholder="Module Exam" />
-        <button onClick={onCreate***REMOVED***>Create</button>
-      </tr>
-    </table>
-
-
-<Table striped bordered hover id="t1">
-  <thead>
-    <tr>
-      <th>NAME</th>
-      <th>CODE</th>
-      <th>CA</th>
-      <th>EXAM</th>
-
-
-    </tr>
-  </thead>
-  <tbody>
-
-  </tbody>
-</Table>
-
-</div>
-  );
+  const onCreate = () => { //creates data to the firebase
+    // var user = firebase.auth().currentUser;
+    // const uid = user.uid;
+    // console.log(uid);
+    // const db = firebase.firestore();
+    //db.collection('users').add({moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam***REMOVED***);
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        // User is signed in.
+        const db = firebase.firestore(); //database instance
+        //var userEmail = user.email;
+        var userId = user.uid;
+        db.collection('users').doc(userId).collection("Modules").add({
+          moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam
+      ***REMOVED***
+        );
+    ***REMOVED***
+  ***REMOVED***);
 ***REMOVED***
+
+  const onDelete = () => { //will delete from firebase
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        console.log("Delete")
+        // User is signed in.
+        const db = firebase.firestore(); //database instance
+        //var userEmail = user.email;
+        var userId = user.uid;
+        db.collection('users').doc(userId).delete();
+    ***REMOVED***
+  ***REMOVED***);
+***REMOVED***
+
+  const onUpdate = () => { //this will update firebase
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        const db = firebase.firestore(); //database instance
+        var userId = user.uid;
+        //.set sets all data from before but with updated data
+        db.collection('users').doc(userId).set({
+          ...grades,
+          newModuleCode,
+          newModuleName,
+          newModuleCA,
+          newModuleExam
+      ***REMOVED***);
+    ***REMOVED***
+  ***REMOVED***);
+***REMOVED***
+
+      //Layout
+      return (
+        <div>
+          <header className="pageHeader"></header>
+          <table className="crudTable">
+            <thead className="headers"></thead>
+            <tr className="createRow">
+              {grades.map(grade => (
+                <div key={grade.moduleCode***REMOVED***>
+                  <GradeInput grade={grade***REMOVED*** />
+                </div> //New component
+              ))***REMOVED***
+              <input value={newModuleCode***REMOVED*** onChange={(e) => setNewModuleCode(e.target.value)***REMOVED*** placeholder="Module Code" />
+              <input value={newModuleName***REMOVED*** onChange={(e) => setNewModuleName(e.target.value)***REMOVED*** placeholder="Module Name" />
+              <input value={newModuleCA***REMOVED*** onChange={(e) => setNewModuleCA(e.target.value)***REMOVED*** placeholder="Module CA" />
+              <input value={newModuleExam***REMOVED*** onChange={(e) => setNewModuleExam(e.target.value)***REMOVED*** placeholder="Module Exam" />
+              <button onClick={onCreate***REMOVED***>Create</button>
+            </tr>
+          </table>
+
+
+          <Table striped bordered hover id="t1">
+            <thead>
+              <tr>
+                <th>NAME</th>
+                <th>CODE</th>
+                <th>CA</th>
+                <th>EXAM</th>
+                <th>UPDATE</th>
+                <th>DELETE</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </Table>
+
+        </div>
+      );
+  ***REMOVED***
 
 export default CRUD;
