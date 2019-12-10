@@ -1,21 +1,28 @@
 import React from 'react';
 import * as firebase from 'firebase';
 import { GradeInput ***REMOVED*** from './GradeInput';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 
 //bootstrap stuff please dont edit -G
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl';
-import Container from 'react-bootstrap/Container';
+//import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
+//import SideNav, { NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
+// eslint-disable-next-line
+import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
+import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+import ToDoList from '../ToDoList/ToDoList.js';
+
 let firebaseAppDefined = false
 
 function CRUD2() {
+    // eslint-disable-next-line
     const [grades, setGrades] = React.useState([])
     const [newModuleCode, setNewModuleCode] = React.useState()
     const [newModuleName, setNewModuleName] = React.useState()
@@ -88,6 +95,7 @@ function CRUD2() {
       ***REMOVED***);
   ***REMOVED***
 
+    // eslint-disable-next-line
     function onDelete() {
 
   ***REMOVED***
@@ -99,19 +107,19 @@ function CRUD2() {
                 const db = firebase.firestore(); //database instance
                 var userId = user.uid;
 
-                function check(){
-                    if(window.confirm("Are you sure? This cannot be undone") == true){
-                      db.collection('users').doc(userId).collection("Modules")
-                    .get()
-                    .then(res => {
-                        res.forEach(element => {
-                            element.ref.delete();
-                      ***REMOVED***);
-                  ***REMOVED***);  
-                    console.log("All modules deleted");
-                    alert("All modules were deleted..");
+                function check() {
+                    if (window.confirm("Are you sure? This cannot be undone") === true) {
+                        db.collection('users').doc(userId).collection("Modules")
+                            .get()
+                            .then(res => {
+                                res.forEach(element => {
+                                    element.ref.delete();
+                              ***REMOVED***);
+                          ***REMOVED***);
+                        console.log("All modules deleted");
+                        alert("All modules were deleted..");
                   ***REMOVED***
-                    else{
+                    else {
                         alert("Nothing was deleted..");
                   ***REMOVED***
 
@@ -119,11 +127,12 @@ function CRUD2() {
 
                 check();
 
-                
+
           ***REMOVED***
       ***REMOVED***);
   ***REMOVED***
 
+    // eslint-disable-next-line
     function onUpdate() { //jack's update function - not currently working
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
@@ -149,8 +158,7 @@ function CRUD2() {
         return (
             <div class="container-fluid" >
                 <Row>
-
-                    <Col xs={9***REMOVED***>
+                    <Col xs={8***REMOVED***>
                         <Table striped bordered hover id="t1">
                             <thead>
                                 <tr>
@@ -190,7 +198,7 @@ function CRUD2() {
                                 </Form>
                                 <Button variant="primary" block onClick={onCreate***REMOVED***>Create</Button>
                             </Card.Body>
-                            
+
                         </Card>
 
                         <Card>
@@ -199,14 +207,18 @@ function CRUD2() {
                                 <Button variant="danger" block onClick={onDeleteAll***REMOVED***>Delete all modules</Button>
                             </Card.Body>
                         </Card>
-                    </Col>
 
+                        <Card>
+                            <Card.Header>To Do List</Card.Header>
+                            <Card.Body>
+                                <ToDoList />
+                            </Card.Body>
+                        </Card>
+                    </Col>
                 </Row>
             </div>
         )
   ***REMOVED***
-
-
 
     return (
         crudTable()
