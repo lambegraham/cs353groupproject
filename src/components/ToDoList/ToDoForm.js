@@ -1,5 +1,6 @@
 import React from "react";
 import shortid from "shortid";
+import Button from 'react-bootstrap/Button';
 
 export default class TodoForm extends React.Component {
   state = {
@@ -27,14 +28,13 @@ export default class TodoForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit***REMOVED***>
-          <p>To Do List:</p>
         <input
           name="text"
           value={this.state.text***REMOVED***
           onChange={this.handleChange***REMOVED***
           placeholder="Enter a task..."
         />
-        <button onClick={this.handleSubmit***REMOVED***>Add</button>
+        <Button onClick={this.handleSubmit***REMOVED***>Add</Button>
       </form>
     );
 ***REMOVED***
