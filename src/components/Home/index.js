@@ -141,6 +141,7 @@
 import React from 'react';
 import * as firebase from 'firebase';
 import CRUD from '../CRUD/CRUD';
+import CRUD2 from '../CRUD/CRUD2';
 // //import SideNav, { NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
 // import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
 // import '@trendmicro/react-sidenav/dist/react-sidenav.css';
@@ -208,7 +209,7 @@ class NameForm extends React.Component {
       //   <input type="submit" value="Submit" />
       // </form>
 
-      <CRUD/>
+      <CRUD2/>
       // <React.Fragment>
 
       //   <div className="main">
