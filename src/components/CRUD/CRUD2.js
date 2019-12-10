@@ -88,24 +88,56 @@ function CRUD2() {
       ***REMOVED***);
   ***REMOVED***
 
-    function onDelete(){
+    function onDelete() {
 
   ***REMOVED***
 
-    function onUpdate(){ //jack's update function - not currently working
+    function onDeleteAll() {
         firebase.auth().onAuthStateChanged(function (user) {
-          if (user) {
-            const db = firebase.firestore(); //database instance
-            var userId = user.uid;
-            //.set sets all data from before but with updated data
-            db.collection('users').doc(userId).set({
-              ...grades,
-              newModuleCode,
-              newModuleName,
-              newModuleCA,
-              newModuleExam
-          ***REMOVED***);
-        ***REMOVED***
+            if (user) {
+
+                const db = firebase.firestore(); //database instance
+                var userId = user.uid;
+
+                function check(){
+                    if(window.confirm("Are you sure? This cannot be undone") == true){
+                      db.collection('users').doc(userId).collection("Modules")
+                    .get()
+                    .then(res => {
+                        res.forEach(element => {
+                            element.ref.delete();
+                      ***REMOVED***);
+                  ***REMOVED***);  
+                    console.log("All modules deleted");
+                    alert("All modules were deleted..");
+                  ***REMOVED***
+                    else{
+                        alert("Nothing was deleted..");
+                  ***REMOVED***
+
+              ***REMOVED***
+
+                check();
+
+                
+          ***REMOVED***
+      ***REMOVED***);
+  ***REMOVED***
+
+    function onUpdate() { //jack's update function - not currently working
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                const db = firebase.firestore(); //database instance
+                var userId = user.uid;
+                //.set sets all data from before but with updated data
+                db.collection('users').doc(userId).set({
+                    ...grades,
+                    newModuleCode,
+                    newModuleName,
+                    newModuleCA,
+                    newModuleExam
+              ***REMOVED***);
+          ***REMOVED***
       ***REMOVED***);
   ***REMOVED***
 
@@ -136,28 +168,36 @@ function CRUD2() {
                     </Col>
 
                     <Col>
-                    <Card>
-                    <Card.Header>Add a module</Card.Header>
-                    <Card.Body>
-                        <Form className="crudTable">
-                            {/* <thead className="headers"></thead>
+                        <Card>
+                            <Card.Header>Add a module</Card.Header>
+                            <Card.Body>
+                                <Form className="crudTable">
+                                    {/* <thead className="headers"></thead>
                     <tr className="createRow"> */***REMOVED***
 
-                            {grades.map(grade => (
-                                <div key={grade.moduleCode***REMOVED***>
-                                    <GradeInput grade={grade***REMOVED*** />
-                                </div> //New component
-                            ))***REMOVED***
-                        
-                            <FormControl value={newModuleCode***REMOVED*** onChange={(e) => setNewModuleCode(e.target.value)***REMOVED*** placeholder="Module Code" />
-                            <FormControl value={newModuleName***REMOVED*** onChange={(e) => setNewModuleName(e.target.value)***REMOVED*** placeholder="Module Name" />
-                            <FormControl value={newModuleCA***REMOVED*** onChange={(e) => setNewModuleCA(e.target.value)***REMOVED*** placeholder="Module CA" />
-                            <FormControl value={newModuleExam***REMOVED*** onChange={(e) => setNewModuleExam(e.target.value)***REMOVED*** placeholder="Module Exam" />
+                                    {grades.map(grade => (
+                                        <div key={grade.moduleCode***REMOVED***>
+                                            <GradeInput grade={grade***REMOVED*** />
+                                        </div> //New component
+                                    ))***REMOVED***
+
+                                    <FormControl value={newModuleCode***REMOVED*** onChange={(e) => setNewModuleCode(e.target.value)***REMOVED*** placeholder="Module Code" />
+                                    <FormControl value={newModuleName***REMOVED*** onChange={(e) => setNewModuleName(e.target.value)***REMOVED*** placeholder="Module Name" />
+                                    <FormControl value={newModuleCA***REMOVED*** onChange={(e) => setNewModuleCA(e.target.value)***REMOVED*** placeholder="Module CA" />
+                                    <FormControl value={newModuleExam***REMOVED*** onChange={(e) => setNewModuleExam(e.target.value)***REMOVED*** placeholder="Module Exam" />
+
+                                    {/* </tr> */***REMOVED***
+                                </Form>
+                                <Button variant="primary" block onClick={onCreate***REMOVED***>Create</Button>
+                            </Card.Body>
                             
-                            {/* </tr> */***REMOVED***
-                        </Form>
-                        </Card.Body>
-                        <Button variant="primary" onClick={onCreate***REMOVED***>Create</Button>
+                        </Card>
+
+                        <Card>
+                            <Card.Header>Delete All Modules</Card.Header>
+                            <Card.Body>
+                                <Button variant="danger" block onClick={onDeleteAll***REMOVED***>Delete all modules</Button>
+                            </Card.Body>
                         </Card>
                     </Col>
 
