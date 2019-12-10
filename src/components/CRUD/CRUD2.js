@@ -54,8 +54,8 @@ function CRUD2() {
                                     cell2.innerHTML = doc.data().moduleCode;
                                     cell3.innerHTML = doc.data().moduleCA;
                                     cell4.innerHTML = doc.data().moduleExam;
-                                    cell5.innerHTML = "<Button onClick={onUpdate***REMOVED***>UPDATE </Button>";
-                                    cell6.innerHTML = "<Button onClick={onDelete***REMOVED***>DELETE </Button>";
+                                    cell5.innerHTML = "<button class='btn btn-success' onClick={onUpdate***REMOVED***>UPDATE </button>";
+                                    cell6.innerHTML = "<button class='btn btn-danger' onClick={onDelete***REMOVED***>DELETE </button>";
                                     //end of eric's table variables
                               ***REMOVED***);
                           ***REMOVED***);
