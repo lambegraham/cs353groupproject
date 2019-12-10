@@ -109,6 +109,7 @@ function CRUD2() {
 
                 function check() {
                     if (window.confirm("Are you sure? This cannot be undone") === true) {
+                    if (window.confirm("Are you sure? This cannot be undone") == true) {
                         db.collection('users').doc(userId).collection("Modules")
                             .get()
                             .then(res => {
@@ -148,6 +149,7 @@ function CRUD2() {
               ***REMOVED***);
           ***REMOVED***
       ***REMOVED***);
+       
   ***REMOVED***
 
     function crudTable() { //this is the crud table build function
@@ -226,3 +228,25 @@ function CRUD2() {
 ***REMOVED***
 
 export default CRUD2;
+
+ /*Killians Queries for sorting
+        function sort(){
+         if(document.getElementById("desc").checked==true){
+                var desc = db.collection('users).doc(userId).colection('Modules).OrderBy("moduleName", "desc");
+                desc.get().then(...)
+          ***REMOVED***
+            else if(document.getElementById(high).checked==true){
+                 var high = db.collection('users').doc(userId).collection('Modules').OrderBy("moduleCA","desc");
+                 high.get().then(...)
+          ***REMOVED***
+            else if(document.getElementById(low).checked==true){
+            var low = db.collection('users').doc(userId).collection('Modules').OrderBy("moduleCA", "asc"); 
+            low.get().then(...)
+          ***REMOVED***
+            else{
+                var asc = db.collection('users').doc(userId).collection('Modules').OrderBy("moduleName", "asc");
+                    asc.get().then(...)
+          ***REMOVED***
+      ***REMOVED***
+        
+        */
