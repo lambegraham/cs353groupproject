@@ -1,6 +1,7 @@
 import React from 'react';
 import ToDoForm from "./ToDoForm";
 import Todo from "./ToDo";
+import Button from 'react-bootstrap/Button';
 
 export default class ToDoList extends React.Component {
     state = {
@@ -74,21 +75,21 @@ export default class ToDoList extends React.Component {
                     Tasks left: {this.state.todos.filter(todo => !todo.complete).length***REMOVED***
                 </div>
                 <div>
-                    <button onClick={() => this.updateTodoToShow("all")***REMOVED***>All</button>
-                    <button onClick={() => this.updateTodoToShow("active")***REMOVED***>Active</button>
-                    <button onClick={() => this.updateTodoToShow("complete")***REMOVED***>Complete</button>
+                    <button class='btn btn-info' onClick={() => this.updateTodoToShow("all")***REMOVED***>All</button>
+                    <button class='btn btn-secondary' onClick={() => this.updateTodoToShow("active")***REMOVED***>Active</button>
+                    <button class='btn btn-warning' onClick={() => this.updateTodoToShow("complete")***REMOVED***>Complete</button>
                 </div>
-                
+
                 {this.state.todos.some(todo => todo.complete) ? (
                     <div>
-                        <button onClick={this.removeAllTodosThatAreComplete***REMOVED***>
+                        <button class='btn btn-success' onClick={this.removeAllTodosThatAreComplete***REMOVED***>
                             Remove all complete tasks
-            </button>
+                        </button>
                     </div>
                 ) : null***REMOVED***
 
                 <div>
-                    <button
+                    <Button 
                         onClick={() =>
                             this.setState(state => ({
                                 todos: state.todos.map(todo => ({
@@ -100,7 +101,7 @@ export default class ToDoList extends React.Component {
                       ***REMOVED***
                     >
                         Toggle all tasks complete: {`${this.state.toggleAllComplete***REMOVED***`***REMOVED***
-                    </button>
+                    </Button>
                 </div>
             </div>
         );
