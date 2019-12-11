@@ -109,7 +109,6 @@ function CRUD2() {
 
                 function check() {
                     if (window.confirm("Are you sure? This cannot be undone") === true) {
-                    if (window.confirm("Are you sure? This cannot be undone") == true) {
                         db.collection('users').doc(userId).collection("Modules")
                             .get()
                             .then(res => {
@@ -249,4 +248,4 @@ export default CRUD2;
           ***REMOVED***
       ***REMOVED***
         
-        */
+*/
