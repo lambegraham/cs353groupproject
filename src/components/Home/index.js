@@ -301,8 +301,14 @@ export default NameForm;
 
 // );
 
+const Home = () => (
+  <div>
+    <h1>Welcome </h1>
+  </div>
 
 // const condition = authUser => !!authUser;
+);
 
 // // export default tData;
 // export default withAuthorization(condition)(Home);
+//export default Home;
