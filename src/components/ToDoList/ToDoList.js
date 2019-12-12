@@ -2,6 +2,9 @@ import React from 'react';
 import ToDoForm from "./ToDoForm";
 import Todo from "./ToDo";
 import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
 
 export default class ToDoList extends React.Component {
     state = {
@@ -61,7 +64,7 @@ export default class ToDoList extends React.Component {
             todos = this.state.todos.filter(todo => todo.complete);
       ***REMOVED***
         return (
-            <div>
+            <div className="d-flex flex-column">
                 <ToDoForm onSubmit={this.addTodo***REMOVED*** />
                 {todos.map(todo => (
                     <Todo
@@ -71,25 +74,12 @@ export default class ToDoList extends React.Component {
                         todo={todo***REMOVED***
                     />
                 ))***REMOVED***
-                <div>
-                    Tasks left: {this.state.todos.filter(todo => !todo.complete).length***REMOVED***
-                </div>
-                <div>
-                    <button class='btn btn-info' onClick={() => this.updateTodoToShow("all")***REMOVED***>All</button>
-                    <button class='btn btn-secondary' onClick={() => this.updateTodoToShow("active")***REMOVED***>Active</button>
-                    <button class='btn btn-warning' onClick={() => this.updateTodoToShow("complete")***REMOVED***>Complete</button>
-                </div>
-
-                {this.state.todos.some(todo => todo.complete) ? (
-                    <div>
-                        <button class='btn btn-success' onClick={this.removeAllTodosThatAreComplete***REMOVED***>
-                            Remove all complete tasks
-                        </button>
-                    </div>
-                ) : null***REMOVED***
-
-                <div>
-                    <Button 
+                
+                <ButtonGroup size="sm">
+                    <Button variant='btn btn-info' onClick={() => this.updateTodoToShow("all")***REMOVED***>All</Button>
+                    <Button variant='btn btn-secondary' onClick={() => this.updateTodoToShow("active")***REMOVED***>Active</Button>
+                    <Button variant='btn btn-warning' onClick={() => this.updateTodoToShow("complete")***REMOVED***>Complete</Button>
+                    <Button  
                         onClick={() =>
                             this.setState(state => ({
                                 todos: state.todos.map(todo => ({
@@ -102,7 +92,18 @@ export default class ToDoList extends React.Component {
                     >
                         Toggle all tasks complete: {`${this.state.toggleAllComplete***REMOVED***`***REMOVED***
                     </Button>
+                    </ButtonGroup>
+                <div>
+                    Tasks left: {this.state.todos.filter(todo => !todo.complete).length***REMOVED***
                 </div>
+
+                {this.state.todos.some(todo => todo.complete) ? (
+                    <div>
+                        <button class='btn btn-success' onClick={this.removeAllTodosThatAreComplete***REMOVED***>
+                            Remove all complete tasks
+                        </button>
+                    </div>
+                ) : null***REMOVED***
             </div>
         );
   ***REMOVED***

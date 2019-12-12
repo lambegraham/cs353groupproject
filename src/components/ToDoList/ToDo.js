@@ -11,6 +11,6 @@ export default props => (
     >
       {props.todo.text***REMOVED***
     </div>
-    <button class='btn btn-danger' onClick={props.onDelete***REMOVED***>x</button>
+    <button class='btn btn-danger' onClick={props.onDelete***REMOVED***>X</button>
   </div>
 );
