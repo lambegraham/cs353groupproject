@@ -1,5 +1,9 @@
-import React, { Component ***REMOVED*** from 'react';
-import { withFirebase ***REMOVED*** from '../Firebase';
+import React, {
+  Component
+***REMOVED*** from 'react';
+import {
+  withFirebase
+***REMOVED*** from '../Firebase';
 class AdminPage extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +13,9 @@ class AdminPage extends Component {
   ***REMOVED***
 ***REMOVED***
   componentDidMount() {
-    this.setState({ loading: true ***REMOVED***);
+    this.setState({
+      loading: true
+  ***REMOVED***);
     this.props.firebase.users().on('value', snapshot => {
       const usersObject = snapshot.val();
       const usersList = Object.keys(usersObject).map(key => ({

@@ -10,7 +10,7 @@ import * as ROUTES from '../../constants/routes';
 
 const Navigation = () => (
   <Navbar bg="light" expand="lg">
-    <Navbar.Brand href={ROUTES.LANDING***REMOVED***>Grades Calculator</Navbar.Brand>
+    <Navbar.Brand href={ROUTES.LANDING***REMOVED*** ><h3>Grades Recorder</h3></Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto"></Nav>
