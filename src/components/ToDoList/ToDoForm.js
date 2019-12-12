@@ -1,6 +1,10 @@
 import React from "react";
 import shortid from "shortid";
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
+import Card from 'react-bootstrap/Card';
+import InputGroup from 'react-bootstrap/InputGroup'
 
 export default class TodoForm extends React.Component {
   state = {
@@ -27,15 +31,20 @@ export default class TodoForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit***REMOVED***>
-        <input
+      
+      <Form onSubmit={this.handleSubmit***REMOVED***>
+        <InputGroup>
+        <FormControl
           name="text"
           value={this.state.text***REMOVED***
           onChange={this.handleChange***REMOVED***
           placeholder="Enter a task..."
         />
-        <Button onClick={this.handleSubmit***REMOVED***>Add</Button>
-      </form>
+          <InputGroup.Append>
+          <Button onClick={this.handleSubmit***REMOVED***>Add</Button>
+          </InputGroup.Append>
+        </InputGroup>
+      </Form>
     );
 ***REMOVED***
 ***REMOVED***

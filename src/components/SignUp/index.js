@@ -22,6 +22,7 @@ const INITIAL_STATE = {
   email: '',
   passwordOne: '',
   passwordTwo: '',
+  isAdmin: false,
   error: null,
 ***REMOVED***;
 
@@ -33,8 +34,11 @@ class SignUpFormBase extends Component {
 ***REMOVED***
 
   onSubmit = event => {
-    const { username, email, passwordOne ***REMOVED*** = this.state;
-    this.props.firebase
+    const { username, email, passwordOne, isAdmin ***REMOVED*** = this.state;
+    const roles = {***REMOVED***;
+    if (isAdmin) {
+      roles[ROLES.ADMIN] = ROLES.ADMIN;
+  ***REMOVED***    this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
         // Create a user in your Firebase realtime database
@@ -43,6 +47,8 @@ class SignUpFormBase extends Component {
           .set({
             username,
             email,
+            roles,
+
         ***REMOVED***);
     ***REMOVED***)
       .then(() => {
@@ -60,12 +66,17 @@ class SignUpFormBase extends Component {
     this.setState({ [event.target.name]: event.target.value ***REMOVED***);
 ***REMOVED***
 
+  onChangeCheckbox = event => {
+    this.setState({ [event.target.name]: event.target.checked ***REMOVED***);
+***REMOVED***
+
   render() {
     const {
       username,
       email,
       passwordOne,
       passwordTwo,
+      isAdmin,
       error,
   ***REMOVED*** = this.state;
 
@@ -87,30 +98,30 @@ class SignUpFormBase extends Component {
           type="text"
           placeholder="Full Name"
         />
-                </Form.Group>
+          </Form.Group>
 
-<Form.Group>
-<Form.Control input
+          <Form.Group>
+          <Form.Control input
           name="email"
           value={email***REMOVED***
           onChange={this.onChange***REMOVED***
           type="text"
           placeholder="Email Address"
         />
-                </Form.Group>
+          </Form.Group>
 
-<Form.Group>
-<Form.Control input
+          <Form.Group>
+          <Form.Control input
           name="passwordOne"
           value={passwordOne***REMOVED***
           onChange={this.onChange***REMOVED***
           type="password"
           placeholder="Password"
         />
-                </Form.Group>
+        </Form.Group>
 
-<Form.Group>
-<Form.Control input
+        <Form.Group>
+        <Form.Control input
           name="passwordTwo"
           value={passwordTwo***REMOVED***
           onChange={this.onChange***REMOVED***
@@ -118,7 +129,16 @@ class SignUpFormBase extends Component {
           placeholder="Confirm Password"
         />
         </Form.Group>
-        
+        Are you an admin?
+        <Form.Group>
+        <Form.Control input
+            name="isAdmin"
+            type="checkbox"
+            checked={isAdmin***REMOVED***
+            onChange={this.onChangeCheckbox***REMOVED***
+        />
+        </Form.Group>
+
         <Button variant="primary" disabled={isInvalid***REMOVED*** type="submit">Sign Up</Button>
 
         {error && <p>{error.message***REMOVED***</p>***REMOVED***
@@ -136,3 +156,4 @@ const SignUpLink = () => (
 const SignUpForm = withRouter(withFirebase(SignUpFormBase));
 export default SignUpPage;
 export { SignUpForm, SignUpLink ***REMOVED***;
+export const ADMIN = 'ADMIN';

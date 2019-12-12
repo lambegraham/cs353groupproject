@@ -42,7 +42,6 @@ class AdminPage extends Component {
     );
 ***REMOVED***
 ***REMOVED***
-
 const UserList = ({ users ***REMOVED***) => (
   <ul>
     {users.map(user => (
