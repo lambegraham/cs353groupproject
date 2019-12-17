@@ -28,6 +28,8 @@ function CRUD2() {
     const [newModuleName, setNewModuleName] = React.useState()
     const [newModuleCA, setNewModuleCA] = React.useState()
     const [newModuleExam, setNewModuleExam] = React.useState()
+    const [newModuleDate, setNewModuleDate] = React.useState()
+    const [newModuleGoal, setNewModuleGoal] = React.useState()
 
     setInterval(() => { //all for fetching data
         if (!firebaseAppDefined) {
@@ -54,15 +56,15 @@ function CRUD2() {
                                     var cell2 = row.insertCell(1);
                                     var cell3 = row.insertCell(2);
                                     var cell4 = row.insertCell(3);
-                                    var cell5 = row.insertCell();
-                                    var cell6 = row.insertCell();
+                                    var cell5 = row.insertCell(4);
+                                    var cell6 = row.insertCell(5);
 
                                     cell1.innerHTML = doc.data().moduleName;
                                     cell2.innerHTML = doc.data().moduleCode;
                                     cell3.innerHTML = doc.data().moduleCA;
                                     cell4.innerHTML = doc.data().moduleExam;
-                                    cell5.innerHTML = "<button class='btn btn-success' onClick={onUpdate***REMOVED***>UPDATE </button>";
-                                    cell6.innerHTML = "<button class='btn btn-danger' onClick={onDelete***REMOVED***>DELETE </button>";
+                                    cell5.innerHTML = doc.data().moduleDate;
+                                    cell6.innerHTML = doc.data().moduleGoal;
                                     //end of eric's table variables
                               ***REMOVED***);
                           ***REMOVED***);
@@ -87,7 +89,7 @@ function CRUD2() {
                 var userId = user.uid;
 
                 db.collection('users').doc(userId).collection("Modules").add({
-                    moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam
+                    moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam, moduleDate: newModuleDate, moduleGoal: newModuleGoal 
               ***REMOVED***
                 );
 
@@ -163,12 +165,12 @@ function CRUD2() {
                         <Table striped bordered hover id="t1">
                             <thead>
                                 <tr>
-                                    <th>NAME</th>
                                     <th>CODE</th>
+                                    <th>NAME</th>
                                     <th>CA</th>
                                     <th>EXAM</th>
-                                    <th>UPDATE</th>
-                                    <th>DELETE</th>
+                                    <th>DATE</th>
+                                    <th>GOAL</th>
                                 </tr>
                             </thead>
                             <tbody id="tbody">
@@ -194,7 +196,8 @@ function CRUD2() {
                                     <FormControl value={newModuleName***REMOVED*** onChange={(e) => setNewModuleName(e.target.value)***REMOVED*** placeholder="Module Name" />
                                     <FormControl value={newModuleCA***REMOVED*** onChange={(e) => setNewModuleCA(e.target.value)***REMOVED*** placeholder="Module CA" />
                                     <FormControl value={newModuleExam***REMOVED*** onChange={(e) => setNewModuleExam(e.target.value)***REMOVED*** placeholder="Module Exam" />
-
+                                    <FormControl value={newModuleDate***REMOVED*** onChange={(e) => setNewModuleDate(e.target.value)***REMOVED*** type="date"/>
+                                    <FormControl value={newModuleGoal***REMOVED*** onChange={(e) => setNewModuleGoal(e.target.value)***REMOVED*** placeholder="Module Goal" />
                                     {/* </tr> */***REMOVED***
                                 </Form>
                                 <Button variant="primary" block onClick={onCreate***REMOVED***>Create</Button>
