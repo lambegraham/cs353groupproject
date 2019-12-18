@@ -4,6 +4,10 @@ import React, {
 import {
   withFirebase
 ***REMOVED*** from '../Firebase';
+import { AuthUserContext, withAuthorization ***REMOVED*** from '../Session';
+***REMOVED***
+
+
 class AdminPage extends Component {
   constructor(props) {
     super(props);
@@ -59,4 +63,6 @@ const UserList = ({ users ***REMOVED***) => (
     ))***REMOVED***
   </ul>
 );
-export default withFirebase(AdminPage);
+const condition = authUser =>
+  authUser && !!authUser.roles[ROLES.ADMIN];
+export default withAuthorization(condition)(AdminPage);

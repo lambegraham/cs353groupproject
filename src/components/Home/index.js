@@ -2,6 +2,8 @@ import React from 'react';
 import * as firebase from 'firebase';
 import CRUD from '../CRUD/CRUD';
 import CRUD2 from '../CRUD/CRUD2';
+import { withAuthorization ***REMOVED*** from '../Session';
+
 // //import SideNav, { NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
 // import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
 // import '@trendmicro/react-sidenav/dist/react-sidenav.css';
@@ -131,7 +133,8 @@ class NameForm extends React.Component {
 //   document.getElementById('root')
 // );
 
-export default NameForm;
+const condition = authUser => !!authUser;
+export default withAuthorization(condition)(NameForm);
 
 
 
