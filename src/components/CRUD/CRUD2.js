@@ -196,7 +196,7 @@ function CRUD2() {
                                     <FormControl value={newModuleName***REMOVED*** onChange={(e) => setNewModuleName(e.target.value)***REMOVED*** placeholder="Module Name" />
                                     <FormControl value={newModuleCA***REMOVED*** onChange={(e) => setNewModuleCA(e.target.value)***REMOVED*** placeholder="Module CA" />
                                     <FormControl value={newModuleExam***REMOVED*** onChange={(e) => setNewModuleExam(e.target.value)***REMOVED*** placeholder="Module Exam" />
-                                    <FormControl value={newModuleDate***REMOVED*** onChange={(e) => setNewModuleDate(e.target.value)***REMOVED*** type="date"/>
+                                    <FormControl value={newModuleDate***REMOVED*** onChange={(e) => setNewModuleDate(e.target.value)***REMOVED*** placeholder="dd/mm/yyyy" type="date"/>
                                     <FormControl value={newModuleGoal***REMOVED*** onChange={(e) => setNewModuleGoal(e.target.value)***REMOVED*** placeholder="Module Goal" />
                                     {/* </tr> */***REMOVED***
                                 </Form>

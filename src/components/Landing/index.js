@@ -6,7 +6,7 @@ import ProjectTable from '../Landing/ProjectTable.png'
 
 const Landing = () => (
   <div class="container" align="left">
-    <h1 align="center">What the Team 5 Grade Recorder has to offer!</h1>
+    <h1 align="center">What GradeTrak has to offer!</h1>
     <Carousel>
       <Carousel.Item>
         <Image
