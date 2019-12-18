@@ -1,35 +1,26 @@
 import React from 'react';
 import * as firebase from 'firebase';
 import { GradeInput ***REMOVED*** from './GradeInput';
-//import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 
 //bootstrap stuff please dont edit -G
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl';
-//import Container from 'react-bootstrap/Container';
+import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
-//import SideNav, { NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
-// eslint-disable-next-line
-import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
-import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-import ToDoList from '../ToDoList/ToDoList.js';
-
 let firebaseAppDefined = false
 
 function CRUD2() {
-    // eslint-disable-next-line
     const [grades, setGrades] = React.useState([])
     const [newModuleCode, setNewModuleCode] = React.useState()
     const [newModuleName, setNewModuleName] = React.useState()
     const [newModuleCA, setNewModuleCA] = React.useState()
     const [newModuleExam, setNewModuleExam] = React.useState()
-    const [newModuleDate, setNewModuleDate] = React.useState()
-    const [newModuleGoal, setNewModuleGoal] = React.useState()
 
     setInterval(() => { //all for fetching data
         if (!firebaseAppDefined) {
@@ -56,15 +47,15 @@ function CRUD2() {
                                     var cell2 = row.insertCell(1);
                                     var cell3 = row.insertCell(2);
                                     var cell4 = row.insertCell(3);
-                                    var cell5 = row.insertCell(4);
-                                    var cell6 = row.insertCell(5);
+                                    var cell5 = row.insertCell();
+                                    var cell6 = row.insertCell();
 
                                     cell1.innerHTML = doc.data().moduleName;
                                     cell2.innerHTML = doc.data().moduleCode;
                                     cell3.innerHTML = doc.data().moduleCA;
                                     cell4.innerHTML = doc.data().moduleExam;
-                                    cell5.innerHTML = doc.data().moduleDate;
-                                    cell6.innerHTML = doc.data().moduleGoal;
+                                    cell5.innerHTML = "<button class='btn btn-success' onClick={onUpdate***REMOVED***>UPDATE </button>";
+                                    cell6.innerHTML = "<button class='btn btn-danger' onClick={onDelete***REMOVED***>DELETE </button>";
                                     //end of eric's table variables
                               ***REMOVED***);
                           ***REMOVED***);
@@ -89,17 +80,17 @@ function CRUD2() {
                 var userId = user.uid;
 
                 db.collection('users').doc(userId).collection("Modules").add({
-                    moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam, moduleDate: newModuleDate, moduleGoal: newModuleGoal 
+                    moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam
               ***REMOVED***
                 );
+                
 
           ***REMOVED***
       ***REMOVED***);
   ***REMOVED***
 
-    // eslint-disable-next-line
     function onDelete() {
-
+           
   ***REMOVED***
 
     function onDeleteAll() {
@@ -110,7 +101,7 @@ function CRUD2() {
                 var userId = user.uid;
 
                 function check() {
-                    if (window.confirm("Are you sure? This cannot be undone") === true) {
+                    if (window.confirm("Are you sure? This cannot be undone") == true) {
                         db.collection('users').doc(userId).collection("Modules")
                             .get()
                             .then(res => {
@@ -134,7 +125,6 @@ function CRUD2() {
       ***REMOVED***);
   ***REMOVED***
 
-    // eslint-disable-next-line
     function onUpdate() { //jack's update function - not currently working
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
@@ -160,17 +150,19 @@ function CRUD2() {
 
         return (
             <div class="container-fluid" >
+                
                 <Row>
-                    <Col xs={8***REMOVED***>
+
+                    <Col xs={9***REMOVED***>
                         <Table striped bordered hover id="t1">
                             <thead>
                                 <tr>
-                                    <th>CODE</th>
                                     <th>NAME</th>
+                                    <th>CODE</th>
                                     <th>CA</th>
                                     <th>EXAM</th>
-                                    <th>DATE</th>
-                                    <th>GOAL</th>
+                                    <th>UPDATE</th>
+                                    <th>DELETE</th>
                                 </tr>
                             </thead>
                             <tbody id="tbody">
@@ -196,8 +188,7 @@ function CRUD2() {
                                     <FormControl value={newModuleName***REMOVED*** onChange={(e) => setNewModuleName(e.target.value)***REMOVED*** placeholder="Module Name" />
                                     <FormControl value={newModuleCA***REMOVED*** onChange={(e) => setNewModuleCA(e.target.value)***REMOVED*** placeholder="Module CA" />
                                     <FormControl value={newModuleExam***REMOVED*** onChange={(e) => setNewModuleExam(e.target.value)***REMOVED*** placeholder="Module Exam" />
-                                    <FormControl value={newModuleDate***REMOVED*** onChange={(e) => setNewModuleDate(e.target.value)***REMOVED*** type="date"/>
-                                    <FormControl value={newModuleGoal***REMOVED*** onChange={(e) => setNewModuleGoal(e.target.value)***REMOVED*** placeholder="Module Goal" />
+
                                     {/* </tr> */***REMOVED***
                                 </Form>
                                 <Button variant="primary" block onClick={onCreate***REMOVED***>Create</Button>
@@ -211,18 +202,14 @@ function CRUD2() {
                                 <Button variant="danger" block onClick={onDeleteAll***REMOVED***>Delete all modules</Button>
                             </Card.Body>
                         </Card>
-
-                        <Card>
-                            <Card.Header>To Do List</Card.Header>
-                            <Card.Body>
-                                <ToDoList />
-                            </Card.Body>
-                        </Card>
                     </Col>
+
                 </Row>
             </div>
         )
   ***REMOVED***
+
+
 
     return (
         crudTable()
@@ -251,4 +238,4 @@ export default CRUD2;
           ***REMOVED***
       ***REMOVED***
         
-*/
+        */
