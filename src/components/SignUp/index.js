@@ -59,16 +59,16 @@ class SignUpFormBase extends Component {
         this.setState({ error ***REMOVED***);
     ***REMOVED***);
     event.preventDefault();
-***REMOVED***
+***REMOVED***;
 
 
   onChange = event => {
     this.setState({ [event.target.name]: event.target.value ***REMOVED***);
-***REMOVED***
+***REMOVED***;
 
   onChangeCheckbox = event => {
     this.setState({ [event.target.name]: event.target.checked ***REMOVED***);
-***REMOVED***
+***REMOVED***;
 
   render() {
     const {

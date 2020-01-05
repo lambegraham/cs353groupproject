@@ -8,7 +8,7 @@ const withAuthentication = Component => {
 
       this.state = {
         authUser: null,
-    ***REMOVED***
+    ***REMOVED***;
   ***REMOVED***
 
 

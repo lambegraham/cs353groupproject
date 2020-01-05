@@ -29,11 +29,11 @@ class PasswordChangeForm extends Component {
     ***REMOVED***);
 
     event.preventDefault();
-***REMOVED***
+***REMOVED***;
 
   onChange = event => {
     this.setState({ [event.target.name]: event.target.value ***REMOVED***);
-***REMOVED***
+***REMOVED***;
 
   render() {
     const { passwordOne, passwordTwo, error ***REMOVED*** = this.state;

@@ -90,8 +90,8 @@ function registerValidSW(swUrl, config) {
             ***REMOVED***
           ***REMOVED***
         ***REMOVED***
-      ***REMOVED***
-    ***REMOVED***
+      ***REMOVED***;
+    ***REMOVED***;
   ***REMOVED***)
     .catch(error => {
       console.error('Error during service worker registration:', error);

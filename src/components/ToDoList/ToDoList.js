@@ -11,13 +11,13 @@ export default class ToDoList extends React.Component {
         todos: [],
         todoToShow: "all",
         toggleAllComplete: true
-  ***REMOVED***
+  ***REMOVED***;
 
     addTodo = todo => {
         this.setState(state => ({
             todos: [todo, ...state.todos]
       ***REMOVED***));
-  ***REMOVED***
+  ***REMOVED***;
 
     toggleComplete = id => {
         this.setState(state => ({
@@ -27,31 +27,31 @@ export default class ToDoList extends React.Component {
                     return {
                         ...todo,
                         complete: !todo.complete
-                  ***REMOVED***
+                  ***REMOVED***;
               ***REMOVED*** else {
                     return todo;
               ***REMOVED***
           ***REMOVED***)
       ***REMOVED***));
-  ***REMOVED***
+  ***REMOVED***;
 
     updateTodoToShow = s => {
         this.setState({
             todoToShow: s
       ***REMOVED***);
-  ***REMOVED***
+  ***REMOVED***;
 
     handleDeleteTodo = id => {
         this.setState(state => ({
             todos: state.todos.filter(todo => todo.id !== id)
       ***REMOVED***));
-  ***REMOVED***
+  ***REMOVED***;
 
     removeAllTodosThatAreComplete = () => {
         this.setState(state => ({
             todos: state.todos.filter(todo => !todo.complete)
       ***REMOVED***));
-  ***REMOVED***
+  ***REMOVED***;
 
     render() {
         let todos = [];
