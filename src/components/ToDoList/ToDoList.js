@@ -11,13 +11,13 @@ export default class ToDoList extends React.Component {
         todos: [],
         todoToShow: "all",
         toggleAllComplete: true
-  ***REMOVED***;
+    };
 
     addTodo = todo => {
         this.setState(state => ({
             todos: [todo, ...state.todos]
-      ***REMOVED***));
-  ***REMOVED***;
+        }));
+    };
 
     toggleComplete = id => {
         this.setState(state => ({
@@ -27,84 +27,84 @@ export default class ToDoList extends React.Component {
                     return {
                         ...todo,
                         complete: !todo.complete
-                  ***REMOVED***;
-              ***REMOVED*** else {
+                    };
+                } else {
                     return todo;
-              ***REMOVED***
-          ***REMOVED***)
-      ***REMOVED***));
-  ***REMOVED***;
+                }
+            })
+        }));
+    };
 
     updateTodoToShow = s => {
         this.setState({
             todoToShow: s
-      ***REMOVED***);
-  ***REMOVED***;
+        });
+    };
 
     handleDeleteTodo = id => {
         this.setState(state => ({
             todos: state.todos.filter(todo => todo.id !== id)
-      ***REMOVED***));
-  ***REMOVED***;
+        }));
+    };
 
     removeAllTodosThatAreComplete = () => {
         this.setState(state => ({
             todos: state.todos.filter(todo => !todo.complete)
-      ***REMOVED***));
-  ***REMOVED***;
+        }));
+    };
 
     render() {
         let todos = [];
 
         if (this.state.todoToShow === "all") {
             todos = this.state.todos;
-      ***REMOVED*** else if (this.state.todoToShow === "active") {
+        } else if (this.state.todoToShow === "active") {
             todos = this.state.todos.filter(todo => !todo.complete);
-      ***REMOVED*** else if (this.state.todoToShow === "complete") {
+        } else if (this.state.todoToShow === "complete") {
             todos = this.state.todos.filter(todo => todo.complete);
-      ***REMOVED***
+        }
         return (
             <div className="d-flex flex-column">
-                <ToDoForm onSubmit={this.addTodo***REMOVED*** />
+                <ToDoForm onSubmit={this.addTodo} />
                 {todos.map(todo => (
                     <Todo
-                        key={todo.id***REMOVED***
-                        toggleComplete={() => this.toggleComplete(todo.id)***REMOVED***
-                        onDelete={() => this.handleDeleteTodo(todo.id)***REMOVED***
-                        todo={todo***REMOVED***
+                        key={todo.id}
+                        toggleComplete={() => this.toggleComplete(todo.id)}
+                        onDelete={() => this.handleDeleteTodo(todo.id)}
+                        todo={todo}
                     />
-                ))***REMOVED***
+                ))}
                 
                 <ButtonGroup size="sm">
-                    <Button variant='btn btn-info' onClick={() => this.updateTodoToShow("all")***REMOVED***>All</Button>
-                    <Button variant='btn btn-secondary' onClick={() => this.updateTodoToShow("active")***REMOVED***>Active</Button>
-                    <Button variant='btn btn-warning' onClick={() => this.updateTodoToShow("complete")***REMOVED***>Complete</Button>
+                    <Button variant='btn btn-info' onClick={() => this.updateTodoToShow("all")}>All</Button>
+                    <Button variant='btn btn-secondary' onClick={() => this.updateTodoToShow("active")}>Active</Button>
+                    <Button variant='btn btn-warning' onClick={() => this.updateTodoToShow("complete")}>Complete</Button>
                     <Button  
                         onClick={() =>
                             this.setState(state => ({
                                 todos: state.todos.map(todo => ({
                                     ...todo,
                                     complete: state.toggleAllComplete
-                              ***REMOVED***)),
+                                })),
                                 toggleAllComplete: !state.toggleAllComplete
-                          ***REMOVED***))
-                      ***REMOVED***
+                            }))
+                        }
                     >
-                        Toggle all tasks complete: {`${this.state.toggleAllComplete***REMOVED***`***REMOVED***
+                        Toggle all tasks complete: {`${this.state.toggleAllComplete}`}
                     </Button>
                     </ButtonGroup>
                 <div>
-                    Tasks left: {this.state.todos.filter(todo => !todo.complete).length***REMOVED***
+                    Tasks left: {this.state.todos.filter(todo => !todo.complete).length}
                 </div>
 
                 {this.state.todos.some(todo => todo.complete) ? (
                     <div>
-                        <button class='btn btn-success' onClick={this.removeAllTodosThatAreComplete***REMOVED***>
+                        <button class='btn btn-success' onClick={this.removeAllTodosThatAreComplete}>
                             Remove all complete tasks
                         </button>
                     </div>
-                ) : null***REMOVED***
+                ) : null}
             </div>
         );
-  ***REMOVED***
-***REMOVED***
+    }
+}

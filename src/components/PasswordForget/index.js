@@ -1,6 +1,6 @@
-import React, { Component ***REMOVED*** from 'react';
-import { Link ***REMOVED*** from 'react-router-dom';
-import { withFirebase ***REMOVED*** from '../Firebase';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
 //styling stuff 
@@ -16,41 +16,41 @@ const PasswordForget = () => (
 const INITIAL_STATE = {
   email: '',
   error: null,
-***REMOVED***;
+};
 
 class PasswordForgetFormBase extends Component {
   constructor(props) {
     super(props);
-    this.state = { ...INITIAL_STATE ***REMOVED***;
-***REMOVED***
+    this.state = { ...INITIAL_STATE };
+  }
   onSubmit = event => {
-    const { email ***REMOVED*** = this.state;
+    const { email } = this.state;
     this.props.firebase
       .doPasswordReset(email)
       .then(() => {
-        this.setState({ ...INITIAL_STATE ***REMOVED***);
-    ***REMOVED***)
+        this.setState({ ...INITIAL_STATE });
+      })
       .catch(error => {
-        this.setState({ error ***REMOVED***);
-    ***REMOVED***);
+        this.setState({ error });
+      });
     event.preventDefault();
-***REMOVED***;
+  };
   onChange = event => {
-    this.setState({ [event.target.name]: event.target.value ***REMOVED***);
-***REMOVED***;
+    this.setState({ [event.target.name]: event.target.value });
+  };
   render() {
-    const { email, error ***REMOVED*** = this.state;
+    const { email, error } = this.state;
     const isInvalid = email === '';
     return (
       <div class="container">
         <h2>Forgot Password?</h2>
-        <Form onSubmit={this.onSubmit***REMOVED***>
+        <Form onSubmit={this.onSubmit}>
           <Form.Group>
             <Form.Label>Enter your email below and we'll send you a link to reset your password.</Form.Label>
             <Form.Control input
               name="email"
-              value={this.state.email***REMOVED***
-              onChange={this.onChange***REMOVED***
+              value={this.state.email}
+              onChange={this.onChange}
               type="text"
               placeholder="Email Address"
             />
@@ -58,20 +58,20 @@ class PasswordForgetFormBase extends Component {
               Never share your password with anyone else.
             </Form.Text>
           </Form.Group>
-          <Button disabled={isInvalid***REMOVED*** type="submit">
+          <Button disabled={isInvalid} type="submit">
             Reset My Password
         </Button>
-          {error && <p>{error.message***REMOVED***</p>***REMOVED***
+          {error && <p>{error.message}</p>}
         </Form>
       </div>
     );
-***REMOVED***
-***REMOVED***
+  }
+}
 const PasswordForgetLink = () => (
   <p>
-    <Link to={ROUTES.PASSWORD_FORGET***REMOVED***>Forgot Password?</Link>
+    <Link to={ROUTES.PASSWORD_FORGET}>Forgot Password?</Link>
   </p>
 );
 export default PasswordForget;
 const PasswordForgetForm = withFirebase(PasswordForgetFormBase);
-export { PasswordForgetForm, PasswordForgetLink ***REMOVED***;
+export { PasswordForgetForm, PasswordForgetLink };

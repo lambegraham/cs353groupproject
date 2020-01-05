@@ -1,67 +1,67 @@
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+import app from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
+import 'firebase/database';
+import * as ROLES from '../../constants/roles';
+import config from './firebaseConfig'
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
+class Firebase {
+  constructor() {
+    app.initializeApp(config);
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
+    this.auth = app.auth();
+    this.db = app.database();
+  }
 
-***REMOVED***
+  // *** Auth API ***
 
-***REMOVED***
-***REMOVED***
+  doCreateUserWithEmailAndPassword = (email, password) =>
+    this.auth.createUserWithEmailAndPassword(email, password);
 
-***REMOVED***
-***REMOVED***
+  doSignInWithEmailAndPassword = (email, password) =>
+    this.auth.signInWithEmailAndPassword(email, password);
 
-***REMOVED***
+  doSignOut = () => this.auth.signOut();
 
-***REMOVED***
+  doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
 
-***REMOVED***
-***REMOVED***
+  doPasswordUpdate = password =>
+    this.auth.currentUser.updatePassword(password);
 
-***REMOVED***
+  // *** Merge Auth and DB User API *** //
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  onAuthUserListener = (next, fallback) =>
+    this.auth.onAuthStateChanged(authUser => {
+      if (authUser) {
+        this.user(authUser.uid)
+          .once('value')
+          .then(snapshot => {
+            const dbUser = snapshot.val();
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-          ***REMOVED***
+            // default empty roles
+            if (!dbUser.roles) {
+              dbUser.roles = [];
+            }
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-          ***REMOVED***;
+            // merge auth and db user
+            authUser = {
+              uid: authUser.uid,
+              email: authUser.email,
+              ...dbUser,
+            };
 
-***REMOVED***
-        ***REMOVED***);
-    ***REMOVED*** else {
-***REMOVED***
-    ***REMOVED***
-  ***REMOVED***);
+            next(authUser);
+          });
+      } else {
+        fallback();
+      }
+    });
 
-***REMOVED***
+  // *** User API ***
 
-***REMOVED***
+  user = uid => this.db.ref(`users/${uid}`);
 
-***REMOVED***
-***REMOVED***
+  users = () => this.db.ref('users');
+}
 
-***REMOVED***
+export default Firebase;

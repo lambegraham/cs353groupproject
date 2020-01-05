@@ -1,12 +1,12 @@
-import React, { Component ***REMOVED*** from 'react';
-import { Link, withRouter ***REMOVED*** from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 // eslint-disable-next-line
-import { compose ***REMOVED*** from 'recompose';
+import { compose } from 'recompose';
 
-import { withFirebase ***REMOVED*** from '../Firebase';
+import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 // eslint-disable-next-line
-***REMOVED***
+import * as ROLES from '../../constants/roles';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -24,21 +24,21 @@ const INITIAL_STATE = {
   passwordTwo: '',
   isAdmin: false,
   error: null,
-***REMOVED***;
+};
 
 class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { ...INITIAL_STATE ***REMOVED***;
-***REMOVED***
+    this.state = { ...INITIAL_STATE };
+  }
 
   onSubmit = event => {
-    const { username, email, passwordOne, isAdmin ***REMOVED*** = this.state;
-    const roles = {***REMOVED***;
+    const { username, email, passwordOne, isAdmin } = this.state;
+    const roles = {};
     if (isAdmin) {
       roles[ROLES.ADMIN] = ROLES.ADMIN;
-  ***REMOVED***    this.props.firebase
+    }    this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
         // Create a user in your Firebase realtime database
@@ -49,26 +49,26 @@ class SignUpFormBase extends Component {
             email,
             roles,
 
-        ***REMOVED***);
-    ***REMOVED***)
+          });
+      })
       .then(() => {
-        this.setState({ ...INITIAL_STATE ***REMOVED***);
+        this.setState({ ...INITIAL_STATE });
         this.props.history.push(ROUTES.HOME);
-    ***REMOVED***)
+      })
       .catch(error => {
-        this.setState({ error ***REMOVED***);
-    ***REMOVED***);
+        this.setState({ error });
+      });
     event.preventDefault();
-***REMOVED***;
+  };
 
 
   onChange = event => {
-    this.setState({ [event.target.name]: event.target.value ***REMOVED***);
-***REMOVED***;
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
   onChangeCheckbox = event => {
-    this.setState({ [event.target.name]: event.target.checked ***REMOVED***);
-***REMOVED***;
+    this.setState({ [event.target.name]: event.target.checked });
+  };
 
   render() {
     const {
@@ -78,7 +78,7 @@ class SignUpFormBase extends Component {
       passwordTwo,
       isAdmin,
       error,
-  ***REMOVED*** = this.state;
+    } = this.state;
 
     const isInvalid =
       passwordOne !== passwordTwo ||
@@ -89,12 +89,12 @@ class SignUpFormBase extends Component {
     return (
       <div class = "container">
         <h1>SignUp</h1>
-      <Form onSubmit={this.onSubmit***REMOVED***>
+      <Form onSubmit={this.onSubmit}>
         <Form.Group>
         <Form.Control input
           name="username"
-          value={username***REMOVED***
-          onChange={this.onChange***REMOVED***
+          value={username}
+          onChange={this.onChange}
           type="text"
           placeholder="Full Name"
         />
@@ -103,8 +103,8 @@ class SignUpFormBase extends Component {
           <Form.Group>
           <Form.Control input
           name="email"
-          value={email***REMOVED***
-          onChange={this.onChange***REMOVED***
+          value={email}
+          onChange={this.onChange}
           type="text"
           placeholder="Email Address"
         />
@@ -113,8 +113,8 @@ class SignUpFormBase extends Component {
           <Form.Group>
           <Form.Control input
           name="passwordOne"
-          value={passwordOne***REMOVED***
-          onChange={this.onChange***REMOVED***
+          value={passwordOne}
+          onChange={this.onChange}
           type="password"
           placeholder="Password"
         />
@@ -123,8 +123,8 @@ class SignUpFormBase extends Component {
         <Form.Group>
         <Form.Control input
           name="passwordTwo"
-          value={passwordTwo***REMOVED***
-          onChange={this.onChange***REMOVED***
+          value={passwordTwo}
+          onChange={this.onChange}
           type="password"
           placeholder="Confirm Password"
         />
@@ -134,26 +134,26 @@ class SignUpFormBase extends Component {
         <Form.Control input
             name="isAdmin"
             type="checkbox"
-            checked={isAdmin***REMOVED***
-            onChange={this.onChangeCheckbox***REMOVED***
+            checked={isAdmin}
+            onChange={this.onChangeCheckbox}
         />
         </Form.Group>
 
-        <Button variant="primary" disabled={isInvalid***REMOVED*** type="submit">Sign Up</Button>
+        <Button variant="primary" disabled={isInvalid} type="submit">Sign Up</Button>
 
-        {error && <p>{error.message***REMOVED***</p>***REMOVED***
+        {error && <p>{error.message}</p>}
         </Form>
         </div>
     );
-***REMOVED***
-***REMOVED***
+  }
+}
 
 const SignUpLink = () => (
   <p>
-    Don't have an account? <Link to={ROUTES.SIGN_UP***REMOVED***>Sign Up</Link>
+    Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
   </p>
 );
 const SignUpForm = withRouter(withFirebase(SignUpFormBase));
 export default SignUpPage;
-export { SignUpForm, SignUpLink ***REMOVED***;
+export { SignUpForm, SignUpLink };
 export const ADMIN = 'ADMIN';

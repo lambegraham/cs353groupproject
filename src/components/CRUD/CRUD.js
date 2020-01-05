@@ -1,7 +1,7 @@
 import React from 'react';
 import * as firebase from 'firebase';
-import { GradeInput ***REMOVED*** from './GradeInput';
-***REMOVED***
+import { GradeInput } from './GradeInput';
+import 'firebase/firestore';
 
 function CRUD() {
   const [grades, setGrades] = React.useState([])
@@ -30,31 +30,31 @@ function CRUD() {
       // docRef.get().then(function (doc) {
       //   if (doc.exists) {
       //     console.log("Document data:", doc.data());
-      // ***REMOVED*** else {
+      //   } else {
       //     // doc.data() will be undefined in this case
       //     console.log("No such document!");
-      // ***REMOVED***
-      // ***REMOVED***).catch(function (error) {
+      //   }
+      // }).catch(function (error) {
       //   console.log("Error getting document:", error);
-      // ***REMOVED***); 
+      // }); 
       // code to check documents - seems to be returning nothing although users doc should appear.
       //--------------------------------------------------------------------------------------------------------------------
-      /// setGrades(data.docs.map(doc => ({ ...doc.data(), id: doc.id ***REMOVED***)))
-  ***REMOVED***
+      /// setGrades(data.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+    }
     fetchData()
-***REMOVED***, [])
+  }, [])
 
   const onCreate = () => { //creates data to the firebase
     var user = firebase.auth().currentUser;
     const uid = user.uid;
     console.log(uid);
     const db = firebase.firestore();
-    //db.collection('users').add({moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam***REMOVED***);
+    //db.collection('users').add({moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam});
     db.collection('users').doc(uid).collection("Modules").add({
       moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam
-  ***REMOVED***
+    }
     );
-***REMOVED***
+  }
 
   const onLoad = () => {
     const db = firebase.firestore();
@@ -63,7 +63,7 @@ function CRUD() {
     var query = db.collection('users').where("uid", "==", uid);
     console.log(user);
     console.log(query);
-***REMOVED***
+  }
 
   //Layout
   return (
@@ -72,19 +72,19 @@ function CRUD() {
       <thead className="headers"></thead>
       <tr className="createRow">
         {grades.map(grade => (
-          <div key={grade.moduleCode***REMOVED***>
-            <GradeInput grade={grade***REMOVED*** />
+          <div key={grade.moduleCode}>
+            <GradeInput grade={grade} />
           </div> //New component
-        ))***REMOVED***
-        <input value={newModuleCode***REMOVED*** onChange={(e) => setNewModuleCode(e.target.value)***REMOVED*** placeholder="Module Code" />
-        <input value={newModuleName***REMOVED*** onChange={(e) => setNewModuleName(e.target.value)***REMOVED*** placeholder="Module Name" />
-        <input value={newModuleCA***REMOVED*** onChange={(e) => setNewModuleCA(e.target.value)***REMOVED*** placeholder="Module CA" />
-        <input value={newModuleExam***REMOVED*** onChange={(e) => setNewModuleExam(e.target.value)***REMOVED*** placeholder="Module Exam" />
-        <button onClick={onCreate***REMOVED***>Create</button>
+        ))}
+        <input value={newModuleCode} onChange={(e) => setNewModuleCode(e.target.value)} placeholder="Module Code" />
+        <input value={newModuleName} onChange={(e) => setNewModuleName(e.target.value)} placeholder="Module Name" />
+        <input value={newModuleCA} onChange={(e) => setNewModuleCA(e.target.value)} placeholder="Module CA" />
+        <input value={newModuleExam} onChange={(e) => setNewModuleExam(e.target.value)} placeholder="Module Exam" />
+        <button onClick={onCreate}>Create</button>
       </tr>
     </table>
   );
-***REMOVED***
+}
 
 
 export default CRUD;

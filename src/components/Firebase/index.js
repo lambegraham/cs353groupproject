@@ -1,9 +1,9 @@
 import FirebaseContext, {
     withFirebase
-***REMOVED*** from './context';
+} from './context';
 import Firebase from './firebase';
-***REMOVED***
+export default Firebase;
 export {
     FirebaseContext,
     withFirebase
-***REMOVED***;
+};

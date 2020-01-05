@@ -5,30 +5,30 @@
             "moduleName": "Computation & Complexity",
             "moduleCA": "20",
             "moduleExam": "80"
-      ***REMOVED***,
+        },
         {
             "moduleCode": "CS357",
             "moduleName": "Software Verification",
             "moduleCA": "20",
             "moduleExam": "80"
-      ***REMOVED***,
+        },
         {
             "moduleCode": "CS353",
             "moduleName": "Team Project",
             "moduleCA": "100",
             "moduleExam": "0"
-      ***REMOVED***,
+        },
         {
             "moduleCode": "CS320",
             "moduleName": "Computer Networks",
             "moduleCA": "40",
             "moduleExam": "60"
-      ***REMOVED***,
+        },
         {
             "moduleCode": "CS310",
             "moduleName": "Programming Languages & Compilers",
             "moduleCA": "20",
             "moduleExam": "80"
-      ***REMOVED***
+        }
     ]
-***REMOVED***
+}

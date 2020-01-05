@@ -1,9 +1,9 @@
 import React from 'react';
-import { withFirebase ***REMOVED*** from '../Firebase';
+import { withFirebase } from '../Firebase';
 import Button from 'react-bootstrap/Button';
 
-const SignOutButton = ({ firebase ***REMOVED***) => (
-  <Button variant="primary" onClick={firebase.doSignOut***REMOVED*** href="/">
+const SignOutButton = ({ firebase }) => (
+  <Button variant="primary" onClick={firebase.doSignOut} href="/">
     Sign Out
   </Button>
 );

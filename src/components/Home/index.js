@@ -2,10 +2,10 @@ import React from 'react';
 import * as firebase from 'firebase';
 import CRUD from '../CRUD/CRUD';
 import CRUD2 from '../CRUD/CRUD2';
-import { withAuthorization ***REMOVED*** from '../Session';
+import { withAuthorization } from '../Session';
 
-// //import SideNav, { NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
-// import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
+// //import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+// import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 // import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 // import ToDoList from '../ToDoList/ToDoList.js';
 
@@ -14,20 +14,20 @@ import { withAuthorization ***REMOVED*** from '../Session';
 class NameForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' ***REMOVED***;
+    this.state = { value: '' };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-***REMOVED***
+  }
 
   handleChange(event) {
-    this.setState({ value: event.target.value ***REMOVED***);
-***REMOVED***
+    this.setState({ value: event.target.value });
+  }
 
   handleSubmit(event) {
     alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
-***REMOVED***
+  }
 
 
   onCreate = () => { //creates data to the firebase
@@ -36,36 +36,36 @@ class NameForm extends React.Component {
     console.log(uid);
 
     //const db = firebase.firestore();
-    // db.collection('users').doc(uid).collection("Modules").add({moduleCode: ***REMOVED***)
-    //db.collection('users').add({moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam***REMOVED***);
+    // db.collection('users').doc(uid).collection("Modules").add({moduleCode: })
+    //db.collection('users').add({moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam});
     // db.collection('users').doc(uid).collection("Modules").add({
     //   moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam
-    // ***REMOVED***
+    // }
     // );
-***REMOVED***
+  }
 
   render() {
     return (
 
-      // <form onSubmit={this.handleSubmit***REMOVED***>
+      // <form onSubmit={this.handleSubmit}>
       //   <label>
       //     ModuleCode:
-      //     <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+      //     <input type="text" value={this.state.value} onChange={this.handleChange} />
       //   </label>
 
       //   <label>
       //     ModuleName:
-      //     <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+      //     <input type="text" value={this.state.value} onChange={this.handleChange} />
       //   </label>
 
       //   <label>
       //     ModuleCA:
-      //     <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+      //     <input type="text" value={this.state.value} onChange={this.handleChange} />
       //   </label>
 
       //   <label>
       //     Module Exam:
-      //     <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+      //     <input type="text" value={this.state.value} onChange={this.handleChange} />
       //   </label>
 
       //   <input type="submit" value="Submit" />
@@ -79,13 +79,13 @@ class NameForm extends React.Component {
       //       <SideNav
       //         onSelect={(selected) => {
       //           // Add your code here
-      //       ***REMOVED******REMOVED***
+      //         }}
       //       >
       //         <SideNav.Toggle />
       //         <SideNav.Nav defaultSelected="home">
       //           <NavItem eventKey="home">
       //             <NavIcon>
-      //               <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' ***REMOVED******REMOVED*** />
+      //               <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
       //             </NavIcon>
       //             <NavText>
       //               <ToDoList />
@@ -96,25 +96,25 @@ class NameForm extends React.Component {
       //     </div>
 
       //     <div className="CRUD">
-      //       <form onSubmit={this.handleSubmit***REMOVED***>
+      //       <form onSubmit={this.handleSubmit}>
       //         <label>
       //           ModuleCode:
-      //     <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+      //     <input type="text" value={this.state.value} onChange={this.handleChange} />
       //         </label>
 
       //         <label>
       //           ModuleName:
-      //     <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+      //     <input type="text" value={this.state.value} onChange={this.handleChange} />
       //         </label>
 
       //         <label>
       //           ModuleCA:
-      //     <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+      //     <input type="text" value={this.state.value} onChange={this.handleChange} />
       //         </label>
 
       //         <label>
       //           Module Exam:
-      //     <input type="text" value={this.state.value***REMOVED*** onChange={this.handleChange***REMOVED*** />
+      //     <input type="text" value={this.state.value} onChange={this.handleChange} />
       //         </label>
 
       //         <input type="submit" value="Submit" />
@@ -125,8 +125,8 @@ class NameForm extends React.Component {
       // </React.Fragment>
 
     );
-***REMOVED***
-***REMOVED***
+  }
+}
 
 // ReactDOM.render(
 //   <NameForm />,
@@ -146,9 +146,9 @@ export default withAuthorization(condition)(NameForm);
 // import * as firebase from 'firebase';
 // import 'firebase/firestore'
 // import CRUD from '../CRUD/CRUD.js'
-// import { GradeInput ***REMOVED*** from '../CRUD/GradeInput';
+// import { GradeInput } from '../CRUD/GradeInput';
 
-// import { withAuthorization ***REMOVED*** from '../Session';
+// import { withAuthorization } from '../Session';
 
 // export const Home = () => (
 
@@ -156,7 +156,7 @@ export default withAuthorization(condition)(NameForm);
 //   <div class = "container">
 //     <h1>Home</h1>
 //     <body>
-//       {/* <CRUD/>  */***REMOVED***
+//       {/* <CRUD/>  */}
 //     </body>
 //   </div>
 

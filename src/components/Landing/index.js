@@ -13,7 +13,7 @@ const Landing = () => (
       align="left"  
       className="d-block w-100"
       src="holder.js/800x400?text=Grade Recorder&bg=373940"
-      //src={ProjectTable***REMOVED***
+      //src={ProjectTable}
       alt="First slide"
     />
     <Carousel.Caption>

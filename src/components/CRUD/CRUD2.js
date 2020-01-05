@@ -1,6 +1,6 @@
 import React from 'react';
 import * as firebase from 'firebase';
-import { GradeInput ***REMOVED*** from './GradeInput';
+import { GradeInput } from './GradeInput';
 //import ReactDOM from 'react-dom';
 
 //bootstrap stuff please dont edit -G
@@ -13,9 +13,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
-//import SideNav, { NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
+//import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 // eslint-disable-next-line
-import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText ***REMOVED*** from '@trendmicro/react-sidenav';
+import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import ToDoList from '../ToDoList/ToDoList.js';
 
@@ -66,21 +66,21 @@ function CRUD2() {
                                     cell5.innerHTML = doc.data().moduleDate;
                                     cell6.innerHTML = doc.data().moduleGoal;
                                     //end of eric's table variables
-                              ***REMOVED***);
-                          ***REMOVED***);
-                      ***REMOVED***)();
+                                });
+                            });
+                        })();
 
 
-                  ***REMOVED***
+                    }
                     else {
                         // User is signed out.
                         // ...
-                  ***REMOVED***
-              ***REMOVED***);
+                    }
+                });
                 firebaseAppDefined = true
-          ***REMOVED***
-      ***REMOVED***
-  ***REMOVED***, 100)
+            }
+        }
+    }, 100)
 
     function onCreate() { //jack's create function
         firebase.auth().onAuthStateChanged(function (user) {
@@ -90,17 +90,17 @@ function CRUD2() {
 
                 db.collection('users').doc(userId).collection("Modules").add({
                     moduleCode: newModuleCode, moduleName: newModuleName, moduleCA: newModuleCA, moduleExam: newModuleExam, moduleDate: newModuleDate, moduleGoal: newModuleGoal 
-              ***REMOVED***
+                }
                 );
 
-          ***REMOVED***
-      ***REMOVED***);
-  ***REMOVED***
+            }
+        });
+    }
 
     // eslint-disable-next-line
     function onDelete() {
 
-  ***REMOVED***
+    }
 
     function onDeleteAll() {
         firebase.auth().onAuthStateChanged(function (user) {
@@ -116,23 +116,23 @@ function CRUD2() {
                             .then(res => {
                                 res.forEach(element => {
                                     element.ref.delete();
-                              ***REMOVED***);
-                          ***REMOVED***);
+                                });
+                            });
                         console.log("All modules deleted");
                         alert("All modules were deleted..");
-                  ***REMOVED***
+                    }
                     else {
                         alert("Nothing was deleted..");
-                  ***REMOVED***
+                    }
 
-              ***REMOVED***
+                }
 
                 check();
 
 
-          ***REMOVED***
-      ***REMOVED***);
-  ***REMOVED***
+            }
+        });
+    }
 
     // eslint-disable-next-line
     function onUpdate() { //jack's update function - not currently working
@@ -147,11 +147,11 @@ function CRUD2() {
                     newModuleName,
                     newModuleCA,
                     newModuleExam
-              ***REMOVED***);
-          ***REMOVED***
-      ***REMOVED***);
+                });
+            }
+        });
        
-  ***REMOVED***
+    }
 
     function crudTable() { //this is the crud table build function
         //there is a LOT of bootstrap below! if you are editing this PLEASE text Graham and I can guide you through it
@@ -161,7 +161,7 @@ function CRUD2() {
         return (
             <div class="container-fluid" >
                 <Row>
-                    <Col xs={8***REMOVED***>
+                    <Col xs={8}>
                         <Table striped bordered hover id="t1">
                             <thead>
                                 <tr>
@@ -184,23 +184,23 @@ function CRUD2() {
                             <Card.Body>
                                 <Form className="crudTable">
                                     {/* <thead className="headers"></thead>
-                    <tr className="createRow"> */***REMOVED***
+                    <tr className="createRow"> */}
 
                                     {grades.map(grade => (
-                                        <div key={grade.moduleCode***REMOVED***>
-                                            <GradeInput grade={grade***REMOVED*** />
+                                        <div key={grade.moduleCode}>
+                                            <GradeInput grade={grade} />
                                         </div> //New component
-                                    ))***REMOVED***
+                                    ))}
 
-                                    <FormControl value={newModuleCode***REMOVED*** onChange={(e) => setNewModuleCode(e.target.value)***REMOVED*** placeholder="Module Code" />
-                                    <FormControl value={newModuleName***REMOVED*** onChange={(e) => setNewModuleName(e.target.value)***REMOVED*** placeholder="Module Name" />
-                                    <FormControl value={newModuleCA***REMOVED*** onChange={(e) => setNewModuleCA(e.target.value)***REMOVED*** placeholder="Module CA" />
-                                    <FormControl value={newModuleExam***REMOVED*** onChange={(e) => setNewModuleExam(e.target.value)***REMOVED*** placeholder="Module Exam" />
-                                    <FormControl value={newModuleDate***REMOVED*** onChange={(e) => setNewModuleDate(e.target.value)***REMOVED*** placeholder="dd/mm/yyyy" type="date"/>
-                                    <FormControl value={newModuleGoal***REMOVED*** onChange={(e) => setNewModuleGoal(e.target.value)***REMOVED*** placeholder="Module Goal" />
-                                    {/* </tr> */***REMOVED***
+                                    <FormControl value={newModuleCode} onChange={(e) => setNewModuleCode(e.target.value)} placeholder="Module Code" />
+                                    <FormControl value={newModuleName} onChange={(e) => setNewModuleName(e.target.value)} placeholder="Module Name" />
+                                    <FormControl value={newModuleCA} onChange={(e) => setNewModuleCA(e.target.value)} placeholder="Module CA" />
+                                    <FormControl value={newModuleExam} onChange={(e) => setNewModuleExam(e.target.value)} placeholder="Module Exam" />
+                                    <FormControl value={newModuleDate} onChange={(e) => setNewModuleDate(e.target.value)} placeholder="dd/mm/yyyy" type="date"/>
+                                    <FormControl value={newModuleGoal} onChange={(e) => setNewModuleGoal(e.target.value)} placeholder="Module Goal" />
+                                    {/* </tr> */}
                                 </Form>
-                                <Button variant="primary" block onClick={onCreate***REMOVED***>Create</Button>
+                                <Button variant="primary" block onClick={onCreate}>Create</Button>
                             </Card.Body>
 
                         </Card>
@@ -208,7 +208,7 @@ function CRUD2() {
                         <Card>
                             <Card.Header>Delete All Modules</Card.Header>
                             <Card.Body>
-                                <Button variant="danger" block onClick={onDeleteAll***REMOVED***>Delete all modules</Button>
+                                <Button variant="danger" block onClick={onDeleteAll}>Delete all modules</Button>
                             </Card.Body>
                         </Card>
 
@@ -222,12 +222,12 @@ function CRUD2() {
                 </Row>
             </div>
         )
-  ***REMOVED***
+    }
 
     return (
         crudTable()
     )
-***REMOVED***
+}
 
 export default CRUD2;
 
@@ -236,19 +236,19 @@ export default CRUD2;
          if(document.getElementById("desc").checked==true){
                 var desc = db.collection('users).doc(userId).colection('Modules).OrderBy("moduleName", "desc");
                 desc.get().then(...)
-          ***REMOVED***
+            }
             else if(document.getElementById(high).checked==true){
                  var high = db.collection('users').doc(userId).collection('Modules').OrderBy("moduleCA","desc");
                  high.get().then(...)
-          ***REMOVED***
+            }
             else if(document.getElementById(low).checked==true){
             var low = db.collection('users').doc(userId).collection('Modules').OrderBy("moduleCA", "asc"); 
             low.get().then(...)
-          ***REMOVED***
+            }
             else{
                 var asc = db.collection('users').doc(userId).collection('Modules').OrderBy("moduleName", "asc");
                     asc.get().then(...)
-          ***REMOVED***
-      ***REMOVED***
+            }
+        }
         
 */

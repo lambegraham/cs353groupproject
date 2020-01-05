@@ -2,15 +2,15 @@ import React from "react";
 import Button from 'react-bootstrap/Button';
 
 export default props => (
-  <div style={{ display: "flex", justifyContent: "center" ***REMOVED******REMOVED***>
+  <div style={{ display: "flex", justifyContent: "center" }}>
     <div
       style={{
         textDecoration: props.todo.complete ? "line-through" : ""
-    ***REMOVED******REMOVED***
-      onClick={props.toggleComplete***REMOVED***
+      }}
+      onClick={props.toggleComplete}
     >
-      {props.todo.text***REMOVED***
+      {props.todo.text}
     </div>
-    <button class='btn btn-danger' onClick={props.onDelete***REMOVED***>X</button>
+    <button class='btn btn-danger' onClick={props.onDelete}>X</button>
   </div>
 );

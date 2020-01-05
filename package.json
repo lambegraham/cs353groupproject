@@ -16,16 +16,16 @@
     "react-scripts": "^3.3.0",
     "recompose": "^0.30.0",
     "shortid": "^2.2.15"
-***REMOVED***,
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-***REMOVED***,
+  },
   "eslintConfig": {
     "extends": "react-app"
-***REMOVED***,
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -37,5 +37,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-***REMOVED***
-***REMOVED***
+  }
+}

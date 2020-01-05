@@ -1,11 +1,11 @@
 import React, {
   Component
-***REMOVED*** from 'react';
+} from 'react';
 import {
   withFirebase
-***REMOVED*** from '../Firebase';
-import { AuthUserContext, withAuthorization ***REMOVED*** from '../Session';
-***REMOVED***
+} from '../Firebase';
+import { AuthUserContext, withAuthorization } from '../Session';
+import * as ROLES from '../../constants/roles';
 
 
 class AdminPage extends Component {
@@ -14,53 +14,53 @@ class AdminPage extends Component {
     this.state = {
       loading: false,
       users: [],
-  ***REMOVED***;
-***REMOVED***
+    };
+  }
   componentDidMount() {
     this.setState({
       loading: true
-  ***REMOVED***);
+    });
     this.props.firebase.users().on('value', snapshot => {
       const usersObject = snapshot.val();
       const usersList = Object.keys(usersObject).map(key => ({
         ...usersObject[key],
         uid: key,
-    ***REMOVED***));
+      }));
       this.setState({
         users: usersList,
         loading: false,
-    ***REMOVED***);
-  ***REMOVED***);
-***REMOVED***
+      });
+    });
+  }
   componentWillUnmount() {
     this.props.firebase.users().off();
-***REMOVED***
+  }
   render() {
-    const { users, loading ***REMOVED*** = this.state;
+    const { users, loading } = this.state;
     return (
       <div>
         <h1>Admin</h1>
-        {loading && <div>Loading ...</div>***REMOVED***
-        <UserList users={users***REMOVED*** />
+        {loading && <div>Loading ...</div>}
+        <UserList users={users} />
       </div>
     );
-***REMOVED***
-***REMOVED***
-const UserList = ({ users ***REMOVED***) => (
+  }
+}
+const UserList = ({ users }) => (
   <ul>
     {users.map(user => (
-      <li key={user.uid***REMOVED***>
+      <li key={user.uid}>
         <span>
-          <strong>ID:</strong> {user.uid***REMOVED***
+          <strong>ID:</strong> {user.uid}
         </span>
         <span>
-          <strong>E-Mail:</strong> {user.email***REMOVED***
+          <strong>E-Mail:</strong> {user.email}
         </span>
         <span>
-          <strong>Username:</strong> {user.username***REMOVED***
+          <strong>Username:</strong> {user.username}
         </span>
       </li>
-    ))***REMOVED***
+    ))}
   </ul>
 );
 const condition = authUser =>

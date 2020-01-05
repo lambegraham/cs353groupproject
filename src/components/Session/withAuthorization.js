@@ -1,8 +1,8 @@
 import React from 'react';
-import { withRouter ***REMOVED*** from 'react-router-dom';
-import { compose ***REMOVED*** from 'recompose';
+import { withRouter } from 'react-router-dom';
+import { compose } from 'recompose';
 import AuthUserContext from './context';
-import { withFirebase ***REMOVED*** from '../Firebase';
+import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 const withAuthorization = condition => Component => {
   class WithAuthorization extends React.Component {
@@ -11,27 +11,27 @@ const withAuthorization = condition => Component => {
         authUser => {
           if (!condition(authUser)) {
             this.props.history.push(ROUTES.SIGN_IN);
-        ***REMOVED***
-      ***REMOVED***,
+          }
+        },
         () => this.props.history.push(ROUTES.SIGN_IN),
       );
-  ***REMOVED***
+    }
     componentWillUnmount() {
       this.listener();
-  ***REMOVED***
+    }
     render() {
       return (
         <AuthUserContext.Consumer>
           {authUser =>
-            condition(authUser) ? <Component {...this.props***REMOVED*** /> : null
-        ***REMOVED***
+            condition(authUser) ? <Component {...this.props} /> : null
+          }
         </AuthUserContext.Consumer>
       );
-  ***REMOVED***
-***REMOVED***
+    }
+  }
   return compose(
     withRouter,
     withFirebase,
   )(WithAuthorization);
-***REMOVED***;
+};
 export default withAuthorization;

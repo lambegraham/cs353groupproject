@@ -25,3 +25,4 @@ yarn-error.log*
 
 src/components/Firebase/firebaseConfig.js
 .env
+bfg.jar
