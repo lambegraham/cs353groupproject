@@ -37,10 +37,10 @@ class SignInFormBase extends Component {
         this.setState({ error ***REMOVED***);
     ***REMOVED***);
     event.preventDefault();
-***REMOVED***
+***REMOVED***;
   onChange = event => {
     this.setState({ [event.target.name]: event.target.value ***REMOVED***);
-***REMOVED***
+***REMOVED***;
   render() {
     const { email, password, error ***REMOVED*** = this.state;
     const isInvalid = password === '' || email === '';

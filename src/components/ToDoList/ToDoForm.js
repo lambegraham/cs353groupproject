@@ -9,13 +9,13 @@ import InputGroup from 'react-bootstrap/InputGroup'
 export default class TodoForm extends React.Component {
   state = {
     text: ""
-***REMOVED***
+***REMOVED***;
 
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
   ***REMOVED***);
-***REMOVED***
+***REMOVED***;
 
   handleSubmit = event => {
     event.preventDefault();
@@ -27,7 +27,7 @@ export default class TodoForm extends React.Component {
     this.setState({
       text: ""
   ***REMOVED***);
-***REMOVED***
+***REMOVED***;
 
   render() {
     return (

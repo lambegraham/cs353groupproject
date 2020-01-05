@@ -14,7 +14,7 @@ class AdminPage extends Component {
     this.state = {
       loading: false,
       users: [],
-  ***REMOVED***
+  ***REMOVED***;
 ***REMOVED***
   componentDidMount() {
     this.setState({
